@@ -1,11 +1,11 @@
-import React from 'react';
-import './Nav.css';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import "./Nav.css";
+import { NavLink } from "react-router-dom";
 
 const authenticatedOptions = (
   <>
-    <NavLink className="link" to="/add-product">
-      Add Product
+    <NavLink className="link" to="/add-item">
+      Add Item
     </NavLink>
     <NavLink className="link" to="/sign-out">
       Sign Out
