@@ -1,0 +1,39 @@
+.products {
+    width: 90vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 40px;
+}
+
+.sort-container {
+    display: flex;
+    width: 83.5vw;
+    justify-content: flex-end;
+    margin: 20px;
+}
+
+label {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+select {
+    cursor:pointer;
+    border: none;
+    font-size: 18px;
+}
+
+@media (max-width: 500px) {
+    .products {
+        width: 100%;
+        justify-content: space-around;
+    }
+    .sort-container {
+        width: 100%;
+        justify-content: center;
+        margin: 0px;
+    }
+}

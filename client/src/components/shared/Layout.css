@@ -1,0 +1,27 @@
+.layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-children {
+    flex: 2;
+    padding: 100px;
+}
+
+@media (max-width: 500px) {
+    .layout {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .layout-children {
+        width: 80vw;
+        /* flex: 4; */
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
