@@ -1,8 +1,8 @@
-import api from "./apiConfig";
+import api from './apiConfig';
 
 export const getItems = async () => {
   try {
-    const response = await api.get("/items");
+    const response = await api.get('/items');
     return response.data;
   } catch (error) {
     throw error;
@@ -18,10 +18,10 @@ export const getItem = async (id) => {
   }
 };
 
-export const createItem = async (item, user) => {
+export const createItem = async (item, _id) => {
   try {
-    const itemData = { ...item, ...user };
-    const response = await api.post("/items", itemData);
+    const itemData = { ...item, _id };
+    const response = await api.post('/items', itemData);
     return response.data;
   } catch (error) {
     throw error;

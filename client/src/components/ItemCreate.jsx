@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import "./ItemCreate.css";
-import Layout from "./shared/Layout";
-import { Redirect } from "react-router-dom";
-import { createItem } from "../services/items";
+import React, { Component } from 'react';
+import './ItemCreate.css';
+import Layout from './shared/Layout';
+import { Redirect } from 'react-router-dom';
+import { createItem } from '../services/items';
 
 class ItemCreate extends Component {
   constructor() {
     super();
     this.state = {
       item: {
-        name: "",
-        description: "",
-        imgURL: "",
-        preferredQty: "",
-        onHandQty: "",
+        name: '',
+        description: '',
+        imgURL: '',
+        preferredQty: '',
+        onHandQty: '',
       },
       created: false,
     };
@@ -31,7 +31,7 @@ class ItemCreate extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const created = await createItem(this.state.item, this.props.user);
+    const created = await createItem(this.state.item, this.props.user._id);
     this.setState({ created });
   };
 
