@@ -3,17 +3,6 @@ import "./Nav.css";
 import { NavLink } from "react-router-dom";
 import Mascot from "../../Images/mascot.png";
 
-const authenticatedOptions = (
-  <>
-    <NavLink className="link" to="/add-item">
-      Add Item
-    </NavLink>
-    <NavLink className="link" to="/sign-out">
-      Sign Out
-    </NavLink>
-  </>
-);
-
 const unauthenticatedOptions = (
   <>
     <NavLink className="link" to="/sign-up">
@@ -26,6 +15,24 @@ const unauthenticatedOptions = (
 );
 
 const Nav = ({ user }) => {
+  const authenticatedOptions = (
+    <>
+      {user && (
+        <NavLink className="link" to={`/items/${user._id}`}>
+          Inventory
+        </NavLink>
+      )}
+
+      <NavLink className="link" to="/add-item">
+        Add Item
+      </NavLink>
+
+      <NavLink className="link" to="/sign-out">
+        Sign Out
+      </NavLink>
+    </>
+  );
+
   return (
     <nav>
       <div className="header">
@@ -41,7 +48,7 @@ const Nav = ({ user }) => {
             <div className="navOptions">
               {user ? authenticatedOptions : unauthenticatedOptions}
             </div>
-            <div>
+            <div className="userHello">
               {user && (
                 <div className="userWelcome">Welcome {user.username}!</div>
               )}

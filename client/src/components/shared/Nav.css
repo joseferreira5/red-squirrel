@@ -61,22 +61,22 @@ nav {
   align-items: center;
 }
 
+.link {
+  padding-left: 2em;
+  margin-bottom: 0.5em;
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .navLinks {
   min-width: 30vw;
   align-items: right;
   font-size: 1.1em;
   padding-right: 3em;
   font-weight: 500;
-  display: block;
+  /* display: block; */
   text-align: right;
   margin: 0;
-}
-
-.link {
-  padding-left: 2em;
-  margin-bottom: 0.5em;
-  text-decoration: none;
-  color: #ffffff;
 }
 
 .navOptions {
@@ -86,12 +86,13 @@ nav {
   text-align: right;
 }
 
-.userWelcome {
-  max-width: 18vw;
-  margin-top: 0.5em;
-  color: #ffffff;
+.userHello {
+  max-width: 30vw;
+  align-items: right;
   text-align: right;
   margin: 0;
+  margin-top: 0.5em;
+  color: #ffffff;
 }
 
 a {
@@ -137,13 +138,11 @@ a {
     display: block;
   }
 
-  .userWelcome {
+  .userHello {
     margin-top: 0.5em;
-    text-align: right;
     padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    max-width: 20vw;
-    display: block;
+    max-width: 40vw;
+    align-items: right;
+    text-align: right;
   }
 }
