@@ -62,7 +62,7 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/products" render={() => <Items user={user} />} />
+          <Route exact path="/items/:userId" render={() => <Items user={user} />} />
           <Route
             exact
             path="/add-item"
@@ -79,7 +79,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/products/:id"
+            path="/items/:userId/:itemId"
             render={(props) => (
               <ItemDetail {...props} history={props.history} user={user} />
             )}

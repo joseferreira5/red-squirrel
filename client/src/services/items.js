@@ -1,17 +1,17 @@
-import api from './apiConfig';
+import api from "./apiConfig";
 
-export const getItems = async () => {
+export const getItems = async userId => {
   try {
-    const response = await api.get('/items');
-    return response.data;
+    const response = await api.get(`/items/${userId}`);
+    return response.data.items;
   } catch (error) {
     throw error;
   }
 };
 
-export const getItem = async (id) => {
+export const getItem = async (userId, itemId) => {
   try {
-    const response = await api.get(`/items/${id}`);
+    const response = await api.get(`/items/${userId}/${itemId}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -21,7 +21,7 @@ export const getItem = async (id) => {
 export const createItem = async (item, _id) => {
   try {
     const itemData = { ...item, _id };
-    const response = await api.post('/items', itemData);
+    const response = await api.post("/items", itemData);
     return response.data;
   } catch (error) {
     throw error;
@@ -37,7 +37,7 @@ export const updateItem = async (id, item) => {
   }
 };
 
-export const deleteItem = async (id) => {
+export const deleteItem = async id => {
   try {
     const response = await api.delete(`/items/${id}`);
     return response.data;

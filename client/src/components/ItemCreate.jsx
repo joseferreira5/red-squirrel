@@ -1,35 +1,35 @@
-import React, { Component } from 'react';
-import './ItemCreate.css';
-import Layout from './shared/Layout';
-import { Redirect } from 'react-router-dom';
-import { createItem } from '../services/items';
+import React, { Component } from "react";
+import "./ItemCreate.css";
+import Layout from "./shared/Layout";
+import { Redirect } from "react-router-dom";
+import { createItem } from "../services/items";
 
 class ItemCreate extends Component {
   constructor() {
     super();
     this.state = {
       item: {
-        name: '',
-        description: '',
-        imgURL: '',
-        preferredQty: '',
-        onHandQty: '',
+        name: "",
+        description: "",
+        imgURL: "",
+        preferredQty: "",
+        onHandQty: ""
       },
-      created: false,
+      created: false
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       item: {
         ...this.state.item,
-        [name]: value,
-      },
+        [name]: value
+      }
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
     const created = await createItem(this.state.item, this.props.user._id);
     this.setState({ created });
@@ -39,7 +39,7 @@ class ItemCreate extends Component {
     const { item, created } = this.state;
 
     if (created) {
-      return <Redirect to={`/items`} />;
+      return <Redirect to={`/items/${this.props.user._id}`} />;
     }
     return (
       <Layout user={this.props.user}>
