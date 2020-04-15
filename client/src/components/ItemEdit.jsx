@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './ItemEdit.css';
 import { Redirect } from 'react-router-dom';
+
 import Layout from './shared/Layout';
+
 import { getItem, updateItem } from '../services/items';
+import './ItemEdit.css';
 
 class ItemEdit extends Component {
   constructor(props) {
@@ -86,7 +88,7 @@ class ItemEdit extends Component {
               required
               onChange={this.handleChange}
             />
-              <input
+            <input
               className="input-onHandQty"
               placeholder="onHandQty"
               value={item.onHandQty}

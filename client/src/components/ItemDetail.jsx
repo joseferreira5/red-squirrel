@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Layout from './shared/Layout';
 
@@ -18,23 +18,31 @@ class ItemDetail extends Component {
         onHandQty: '',
         _id: '',
       },
+      deleted: false,
     };
   }
 
   async componentDidMount() {
-    let { userId, itemId } = this.props.match.params;
-    const item = await getItem(userId, itemId);
+    let { itemId } = this.props.match.params;
+    const item = await getItem(itemId);
     this.setState({ item });
   }
 
   handleDelete = (itemId) => {
     deleteItem(itemId);
+    this.setState({ deleted: true });
   };
 
   render() {
-    const { item } = this.state;
+    const { item, deleted } = this.state;
+    const { user } = this.props;
+
+    if (deleted) {
+      return <Redirect to={`/items/${user._id}`} />;
+    }
+
     return (
-      <Layout user={this.props.user}>
+      <Layout user={user}>
         <div className="item-detail">
           <img
             className="item-detail-image"
@@ -54,14 +62,9 @@ class ItemDetail extends Component {
               </button>
               <button
                 className="delete-button"
-                onClick={this.handleDelete(item._id)}
+                onClick={() => this.handleDelete(item._id)}
               >
-                <Link
-                  className="edit-link"
-                  to={`/items/${this.props.user._id}`}
-                >
-                  Delete
-                </Link>
+                Delete
               </button>
             </div>
           </div>
