@@ -13,7 +13,6 @@ import SignOut from './components/SignOut';
 import { verifyUser } from './services/user';
 import './App.css';
 
-
 class App extends Component {
   constructor() {
     super();
@@ -38,7 +37,6 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="app">
-        
         <Switch>
           <Route exact path="/" render={() => <Home user={user} />} />
           <Route
@@ -87,7 +85,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/items/:userId/:itemId"
+            path="/items/detail/:itemId"
             render={(props) => (
               <ItemDetail {...props} history={props.history} user={user} />
             )}
