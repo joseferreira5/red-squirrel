@@ -1,44 +1,45 @@
-import React, { Component } from 'react';
-import './ItemCreate.css';
-import Layout from './shared/Layout';
-import { Redirect } from 'react-router-dom';
-import { createItem } from '../services/items';
+import React, { Component } from "react";
+import "./ItemCreate.css";
+import Layout from "./shared/Layout";
+import { Redirect } from "react-router-dom";
+import { createItem } from "../services/items";
 
 class ItemCreate extends Component {
   constructor() {
     super();
     this.state = {
-      product: {
-        name: '',
-        description: '',
-        imgURL: '',
-        price: '',
+      item: {
+        name: "",
+        description: "",
+        imgURL: "",
+        preferredQty: "",
+        onHandQty: ""
       },
-      created: false,
+      created: false
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
-      product: {
-        ...this.state.product,
-        [name]: value,
-      },
+      item: {
+        ...this.state.item,
+        [name]: value
+      }
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const created = await createItem(this.state.product);
+    const created = await createItem(this.state.item, this.props.user._id);
     this.setState({ created });
   };
 
   render() {
-    const { product, created } = this.state;
+    const { item, created } = this.state;
 
     if (created) {
-      return <Redirect to={`/products`} />;
+      return <Redirect to={`/items/${this.props.user._id}`} />;
     }
     return (
       <Layout user={this.props.user}>
@@ -46,17 +47,25 @@ class ItemCreate extends Component {
           <input
             className="input-name"
             placeholder="Name"
-            value={product.name}
+            value={item.name}
             name="name"
             required
             autoFocus
             onChange={this.handleChange}
           />
           <input
-            className="input-price"
-            placeholder="Price"
-            value={product.price}
-            name="price"
+            className="input-prefQty"
+            placeholder="Preferred Quantity"
+            value={item.preferredQty}
+            name="preferredQty"
+            required
+            onChange={this.handleChange}
+          />
+          <input
+            className="input-onHandQty"
+            placeholder="Quantity on Hand"
+            value={item.onHandQty}
+            name="onHandQty"
             required
             onChange={this.handleChange}
           />
@@ -64,7 +73,7 @@ class ItemCreate extends Component {
             className="textarea-description"
             rows={10}
             placeholder="Description"
-            value={product.description}
+            value={item.description}
             name="description"
             required
             onChange={this.handleChange}
@@ -72,9 +81,8 @@ class ItemCreate extends Component {
           <input
             className="input-image-link"
             placeholder="Image Link"
-            value={product.imgURL}
+            value={item.imgURL}
             name="imgURL"
-            required
             onChange={this.handleChange}
           />
           <button type="submit" className="submit-button">

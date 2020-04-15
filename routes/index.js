@@ -11,8 +11,8 @@ router.post('/sign-in', controllers.signIn);
 router.get('/verify', controllers.verifyUser);
 router.post('/change-password', controllers.changePassword);
 
-router.get('/items', restrict, controllers.getItems);
-router.get('/items/:id', restrict, controllers.getItem);
+router.get('/items/:userId', restrict, controllers.getItems);
+router.get('/items/:userId/:itemId', restrict, controllers.getItem);
 router.post('/items', restrict, controllers.createItem);
 router.put('/items/:id', restrict, controllers.updateItem);
 router.delete('/items/:id', restrict, controllers.deleteItem);

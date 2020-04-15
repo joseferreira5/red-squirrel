@@ -5,8 +5,8 @@ import Mascot from "../../Images/mascot.png";
 
 const authenticatedOptions = (
   <>
-    <NavLink className="link" to="/add-product">
-      Add Product
+    <NavLink className="link" to="/add-item">
+      Add Item
     </NavLink>
     <NavLink className="link" to="/sign-out">
       Sign Out
@@ -25,14 +25,6 @@ const unauthenticatedOptions = (
   </>
 );
 
-const alwaysOptions = (
-  <>
-    <NavLink className="link" to="/products">
-      Products
-    </NavLink>
-  </>
-);
-
 const Nav = ({ user }) => {
   return (
     <nav>
@@ -47,7 +39,6 @@ const Nav = ({ user }) => {
           </NavLink>
           <div className="navLinks">
             <div className="navOptions">
-              {alwaysOptions}
               {user ? authenticatedOptions : unauthenticatedOptions}
             </div>
             <div>

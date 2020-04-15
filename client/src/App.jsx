@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import './App.css';
-import Home from './components/Home';
-import Items from './components/Items';
-import ItemCreate from './components/ItemCreate';
-import ItemEdit from './components/ItemEdit';
-import ItemDetail from './components/ItemDetail';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { verifyUser } from './services/user';
-import SignUp from './components/SignUp';
-import SignIn from './components/SignIn';
-import SignOut from './components/SignOut';
+import React, { Component } from "react";
+import "./App.css";
+import Home from "./components/Home";
+import Items from "./components/Items";
+import ItemCreate from "./components/ItemCreate";
+import ItemEdit from "./components/ItemEdit";
+import ItemDetail from "./components/ItemDetail";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { verifyUser } from "./services/user";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
+import SignOut from "./components/SignOut";
 
 
 class App extends Component {
@@ -64,10 +64,10 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/products" render={() => <Items user={user} />} />
+          <Route exact path="/items/:userId" render={() => <Items user={user} />} />
           <Route
             exact
-            path="/add-product"
+            path="/add-item"
             render={() =>
               user ? <ItemCreate user={user} /> : <Redirect to="/signup" />
             }
@@ -81,7 +81,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/products/:id"
+            path="/items/:userId/:itemId"
             render={(props) => (
               <ItemDetail {...props} history={props.history} user={user} />
             )}
