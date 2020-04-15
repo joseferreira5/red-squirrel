@@ -74,7 +74,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/products/:id/edit"
+            path="/items/:id/edit"
             render={(props) =>
               user ? <ItemEdit {...props} user={user} /> : <Redirect to="/" />
             }
