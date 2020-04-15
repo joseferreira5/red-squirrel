@@ -1,17 +1,7 @@
 import React from "react";
 import "./Nav.css";
 import { NavLink } from "react-router-dom";
-
-const authenticatedOptions = (
-  <>
-    <NavLink className="link" to="/add-item">
-      Add Item
-    </NavLink>
-    <NavLink className="link" to="/sign-out">
-      Sign Out
-    </NavLink>
-  </>
-);
+import Mascot from "../../Images/mascot.png";
 
 const unauthenticatedOptions = (
   <>
@@ -25,15 +15,45 @@ const unauthenticatedOptions = (
 );
 
 const Nav = ({ user }) => {
+  const authenticatedOptions = (
+    <>
+      {user && (
+        <NavLink className="link" to={`/items/${user._id}`}>
+          Inventory
+        </NavLink>
+      )}
+
+      <NavLink className="link" to="/add-item">
+        Add Item
+      </NavLink>
+
+      <NavLink className="link" to="/sign-out">
+        Sign Out
+      </NavLink>
+    </>
+  );
+
   return (
     <nav>
-      <div className="nav">
-        <NavLink className="logo" to="/">
-          ProductsApp
-        </NavLink>
-        <div className="links">
-          {user && <div className="link welcome">Welcome, {user.email}</div>}
-          {user ? authenticatedOptions : unauthenticatedOptions}
+      <div className="header">
+        <div className="nav">
+          <NavLink className="squirrel" to="/">
+            <img src={Mascot} />
+            <div className="logoText">
+              <h1>Red</h1>
+              <h1>Squirrel</h1>
+            </div>
+          </NavLink>
+          <div className="navLinks">
+            <div className="navOptions">
+              {user ? authenticatedOptions : unauthenticatedOptions}
+            </div>
+            <div className="userHello">
+              {user && (
+                <div className="userWelcome">Welcome {user.username}!</div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </nav>
