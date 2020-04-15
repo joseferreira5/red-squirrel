@@ -1,6 +1,12 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
-const Footer = () => <footer></footer>;
+function Footer() {
+  return (
+    <div className="Footer">
+      <span>&copy; 2020 Red Squirrel</span>
+    </div>
+  );
+}
 
 export default Footer;

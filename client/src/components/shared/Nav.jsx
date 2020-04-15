@@ -1,6 +1,7 @@
-import React from 'react';
-import './Nav.css';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import "./Nav.css";
+import { NavLink } from "react-router-dom";
+import Mascot from "../../Images/mascot.png";
 
 const authenticatedOptions = (
   <>
@@ -35,14 +36,26 @@ const alwaysOptions = (
 const Nav = ({ user }) => {
   return (
     <nav>
-      <div className="nav">
-        <NavLink className="logo" to="/">
-          ProductsApp
-        </NavLink>
-        <div className="links">
-          {user && <div className="link welcome">Welcome, {user.email}</div>}
-          {alwaysOptions}
-          {user ? authenticatedOptions : unauthenticatedOptions}
+      <div className="header">
+        <div className="nav">
+          <NavLink className="squirrel" to="/">
+            <img src={Mascot} />
+            <div className="logoText">
+              <h1>Red</h1>
+              <h1>Squirrel</h1>
+            </div>
+          </NavLink>
+          <div className="navLinks">
+            <div className="navOptions">
+              {alwaysOptions}
+              {user ? authenticatedOptions : unauthenticatedOptions}
+            </div>
+            <div>
+              {user && (
+                <div className="userWelcome">Welcome {user.username}!</div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </nav>

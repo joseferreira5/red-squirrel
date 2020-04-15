@@ -11,6 +11,7 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import SignOut from './components/SignOut';
 
+
 class App extends Component {
   constructor() {
     super();
@@ -35,6 +36,7 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="app">
+        
         <Switch>
           <Route exact path="/" render={() => <Home user={user} />} />
           <Route
