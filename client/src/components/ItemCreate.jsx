@@ -13,25 +13,25 @@ class ItemCreate extends Component {
         description: "",
         imgURL: "",
         preferredQty: "",
-        onHandQty: "",
+        onHandQty: ""
       },
-      created: false,
+      created: false
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target;
     this.setState({
       item: {
         ...this.state.item,
-        [name]: value,
-      },
+        [name]: value
+      }
     });
   };
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const created = await createItem(this.state.item, this.props.user);
+    const created = await createItem(this.state.item, this.props.user._id);
     this.setState({ created });
   };
 
@@ -39,7 +39,7 @@ class ItemCreate extends Component {
     const { item, created } = this.state;
 
     if (created) {
-      return <Redirect to={`/items`} />;
+      return <Redirect to={`/items/${this.props.user._id}`} />;
     }
     return (
       <Layout user={this.props.user}>

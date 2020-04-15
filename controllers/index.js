@@ -88,9 +88,8 @@ const changePassword = async (req, res) => {
 
 const getItems = async (req, res) => {
   try {
-    const { _id } = req.body;
-    console.log(_id)
-    const items = await User.findById({ _id }).populate("items");
+    const { userId } = req.params;
+    const items = await User.findById({ _id : userId }).populate("items");
     res.json(items);
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -100,9 +99,8 @@ const getItems = async (req, res) => {
 const getItem = async (req, res) => {
   try {
     // Find user by id and then find specific item requested
-    const { id } = req.params;
-    const item = await Item.findById(id);
-
+    const { itemId } = req.params;
+    const item = await Item.findById({ _id : itemId });
     if (item) {
       return res.json(item);
     }

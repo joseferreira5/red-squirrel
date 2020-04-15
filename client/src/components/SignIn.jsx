@@ -30,8 +30,9 @@ class SignIn extends Component {
     signIn(this.state)
       .then(res => {
         setUser(res.user);
+        history.push(`/items/${res.user._id}`)
       })
-      .then(() => history.push("/items"))
+      // .then(() => history.push(`/items/${user._id}`))
       .catch(error => {
         console.error(error);
         this.setState({
