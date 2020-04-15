@@ -8,7 +8,7 @@ class ItemEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {
+      item: {
         name: '',
         description: '',
         imgURL: '',
@@ -20,15 +20,15 @@ class ItemEdit extends Component {
 
   async componentDidMount() {
     let { id } = this.props.match.params;
-    const product = await getItem(id);
-    this.setState({ product });
+    const item = await getItem(id);
+    this.setState({ item });
   }
 
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      product: {
-        ...this.state.product,
+      item: {
+        ...this.state.item,
         [name]: value,
       },
     });
@@ -37,31 +37,31 @@ class ItemEdit extends Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     let { id } = this.props.match.params;
-    const updated = await updateItem(id, this.state.product);
+    const updated = await updateItem(id, this.state.item);
     this.setState({ updated });
   };
 
   render() {
-    const { product, updated } = this.state;
+    const { item, updated } = this.state;
 
     if (updated) {
-      return <Redirect to={`/products/${this.props.match.params.id}`} />;
+      return <Redirect to={`/items/${this.props.match.params.id}`} />;
     }
 
     return (
       <Layout user={this.props.user}>
-        <div className="product-edit">
+        <div className="item-edit">
           <div className="image-container">
             <img
-              className="edit-product-image"
-              src={product.imgURL}
-              alt={product.name}
+              className="edit-item-image"
+              src={item.imgURL}
+              alt={item.name}
             />
             <form onSubmit={this.handleSubmit}>
               <input
                 className="edit-input-image-link"
                 placeholder="Image Link"
-                value={product.imgURL}
+                value={item.imgURL}
                 name="imgURL"
                 required
                 onChange={this.handleChange}
@@ -72,26 +72,35 @@ class ItemEdit extends Component {
             <input
               className="input-name"
               placeholder="Name"
-              value={product.name}
+              value={item.name}
               name="name"
               required
               autoFocus
               onChange={this.handleChange}
             />
             <input
-              className="input-price"
-              placeholder="Price"
-              value={product.price}
-              name="price"
+              className="input-preferredQty"
+              placeholder="preferredQty"
+              value={item.preferredQty}
+              name="Preferred Qty"
               required
               onChange={this.handleChange}
             />
+              <input
+              className="input-onHandQty"
+              placeholder="onHandQty"
+              value={item.onHandQty}
+              name="On Hand Qty"
+              required
+              onChange={this.handleChange}
+            />
+
             <textarea
               className="textarea-description"
               rows={10}
               cols={78}
               placeholder="Description"
-              value={product.description}
+              value={item.description}
               name="description"
               required
               onChange={this.handleChange}

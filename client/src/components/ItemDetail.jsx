@@ -1,55 +1,67 @@
 import React, { Component } from 'react';
-import './ItemDetail.css';
-import Layout from './shared/Layout';
-import { getItem, deleteItem } from '../services/items';
 import { Link } from 'react-router-dom';
 
+import Layout from './shared/Layout';
+
+import { getItem, deleteItem } from '../services/items';
+import './ItemDetail.css';
+
 class ItemDetail extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      product: {
+      item: {
         name: '',
         description: '',
         imgURL: '',
+        preferredQty: '',
+        onHandQty: '',
+        _id: '',
       },
     };
   }
 
   async componentDidMount() {
-    let { id } = this.props.match.params;
-    const product = await getItem(id);
-    this.setState({ product });
+    let { userId, itemId } = this.props.match.params;
+    const item = await getItem(userId, itemId);
+    this.setState({ item });
   }
 
+  handleDelete = (itemId) => {
+    deleteItem(itemId);
+  };
+
   render() {
-    const { product } = this.state;
+    const { item } = this.state;
     return (
       <Layout user={this.props.user}>
-        <div className="product-detail">
+        <div className="item-detail">
           <img
-            className="product-detail-image"
-            src={product.imgURL}
-            alt={product.name}
+            className="item-detail-image"
+            src={item.imgURL}
+            alt={item.name}
           />
           <div className="detail">
-            <div className="name">{product.name}</div>
-            <div className="price">{`$${product.price}`}</div>
-            <div className="description">{product.description}</div>
+            <div className="name">{item.name}</div>
+            <div className="onHandQty">{item.onHandQty}</div>
+            <div className="preferredQty">{item.preferredQty}</div>
+            <div className="description">{item.description}</div>
             <div className="button-container">
               <button className="edit-button">
-                <Link
-                  className="edit-link"
-                  to={`/products/${product._id}/edit`}
-                >
+                <Link className="edit-link" to={`/items/${item._id}/edit`}>
                   Edit
                 </Link>
               </button>
               <button
                 className="delete-button"
-                onClick={() => deleteItem(product._id)}
+                onClick={this.handleDelete(item._id)}
               >
-                Delete
+                <Link
+                  className="edit-link"
+                  to={`/items/${this.props.user._id}`}
+                >
+                  Delete
+                </Link>
               </button>
             </div>
           </div>

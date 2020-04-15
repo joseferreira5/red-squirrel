@@ -1,15 +1,18 @@
-import React, { Component } from "react";
-import "./App.css";
-import Home from "./components/Home";
-import Items from "./components/Items";
-import ItemCreate from "./components/ItemCreate";
-import ItemEdit from "./components/ItemEdit";
-import ItemDetail from "./components/ItemDetail";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { verifyUser } from "./services/user";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
-import SignOut from "./components/SignOut";
+import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import Home from './components/Home';
+import Items from './components/Items';
+import ItemCreate from './components/ItemCreate';
+import ItemEdit from './components/ItemEdit';
+import ItemDetail from './components/ItemDetail';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
+
+import { verifyUser } from './services/user';
+import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -35,6 +38,7 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="app">
+        
         <Switch>
           <Route exact path="/" render={() => <Home user={user} />} />
           <Route
@@ -62,7 +66,11 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/products" render={() => <Items user={user} />} />
+          <Route
+            exact
+            path="/items/:userId"
+            render={() => <Items user={user} />}
+          />
           <Route
             exact
             path="/add-item"
@@ -72,14 +80,14 @@ class App extends Component {
           />
           <Route
             exact
-            path="/products/:id/edit"
+            path="/items/:id/edit"
             render={(props) =>
               user ? <ItemEdit {...props} user={user} /> : <Redirect to="/" />
             }
           />
           <Route
             exact
-            path="/products/:id"
+            path="/items/:userId/:itemId"
             render={(props) => (
               <ItemDetail {...props} history={props.history} user={user} />
             )}
