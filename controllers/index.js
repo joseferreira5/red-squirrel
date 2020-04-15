@@ -16,7 +16,7 @@ const signUp = async (req, res) => {
     const user = await new User({
       username,
       email,
-      password_digest,
+      password_digest
     });
 
     await user.save();
@@ -24,7 +24,7 @@ const signUp = async (req, res) => {
     const payload = {
       id: user._id,
       username: user.username,
-      email: user.email,
+      email: user.email
     };
 
     const token = jwt.sign(payload, TOKEN_KEY);
@@ -45,7 +45,7 @@ const signIn = async (req, res) => {
       const payload = {
         id: user._id,
         username: user.username,
-        email: user.email,
+        email: user.email
       };
 
       const token = jwt.sign(payload, TOKEN_KEY);
@@ -68,11 +68,28 @@ const verifyUser = (req, res) => {
   }
 };
 
-const changePassword = async (req, res) => {};
+const changePassword = async (req, res) => {
+  try {
+    const { username, oldPassword, newPassword } = req.body;
+    const user = await User.findOne({ username: username });
+
+    if (await bcrypt.compare(oldPassword, user.password_digest)) {
+      password_digest = await bcrypt.hash(newPassword, SALT_ROUNDS);
+      await User.findByIdAndUpdate(user._id, { password_digest });
+      res.status(200).send("Updated Password");
+    } else {
+      return res.status(401).send("Password does not match");
+    }
+  } catch (error) {
+    console.log("there's an error");
+    return res.status(500).json({ error: error.message });
+  }
+};
 
 const getItems = async (req, res) => {
   try {
     const { _id } = req.body;
+    console.log(_id)
     const items = await User.findById({ _id }).populate("items");
     res.json(items);
   } catch (error) {
@@ -85,6 +102,7 @@ const getItem = async (req, res) => {
     // Find user by id and then find specific item requested
     const { id } = req.params;
     const item = await Item.findById(id);
+
     if (item) {
       return res.json(item);
     }
@@ -146,5 +164,5 @@ module.exports = {
   getItems,
   getItem,
   updateItem,
-  deleteItem,
+  deleteItem
 };

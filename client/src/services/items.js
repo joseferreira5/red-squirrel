@@ -1,9 +1,12 @@
 import api from "./apiConfig";
 
-export const getItems = async () => {
+export const getItems = async (user) => {
   try {
-    const response = await api.get("/items");
+    console.log(user)
+    if (user) {
+    const response = await api.get("/items", user);
     return response.data;
+  }
   } catch (error) {
     throw error;
   }

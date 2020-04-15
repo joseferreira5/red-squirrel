@@ -18,7 +18,7 @@ class Items extends Component {
   }
 
   async componentDidMount() {
-    const items = await getItems();
+    const items = await getItems(this.props.user);
     this.setState({ items });
   }
 
@@ -37,26 +37,26 @@ class Items extends Component {
   handleSortChange = (event) => {
     this.setState({ selectValue: event.target.value });
     let input = event.target.value; // a-z
-    const { products } = this.state;
+    const { items } = this.state;
     switch (input) {
       case 'name-ascending':
         this.setState({
-          products: AZ(products),
+          items: AZ(items),
         });
         break;
       case 'name-descending':
         this.setState({
-          products: ZA(products),
+          items: ZA(items),
         });
         break;
       case 'price-ascending':
         this.setState({
-          products: lowestFirst(products),
+          items: lowestFirst(items),
         });
         break;
       case 'price-descending':
         this.setState({
-          products: highestFirst(products),
+          items: highestFirst(items),
         });
         break;
       default:
@@ -67,15 +67,15 @@ class Items extends Component {
   handleSubmit = (event) => event.preventDefault();
 
   render() {
-    const products = this.state.filteredProducts
-      ? this.state.filteredProducts
-      : this.state.products;
-    const PRODUCTS = products.map((product, index) => (
+    const items = this.state.filteredItems
+      ? this.state.filteredItems
+      : this.state.items;
+    const ITEMS = items.map((item, index) => (
       <Item
-        _id={product._id}
-        name={product.name}
-        imgURL={product.imgURL}
-        price={product.price}
+        _id={item._id}
+        name={item.name}
+        imgURL={item.imgURL}
+        onHandQty={item.onHandQty}
         key={index}
       />
     ));
@@ -108,7 +108,7 @@ class Items extends Component {
             </option>
           </select>
         </form>
-        <div className="products">{PRODUCTS}</div>
+        <div className="items">{ITEMS}</div>
       </Layout>
     );
   }
