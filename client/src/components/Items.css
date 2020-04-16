@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 40px;
+  margin: 20px;
 }
 
 .sort-container {
