@@ -3,8 +3,49 @@
   padding: 0;
 }
 
+.about {
+  max-width: 40%;
+  display: block;
+  text-align: center;
+  margin-top: 10em;
+  line-height: 1.5em;
+  /* margin-left: auto; */
+  margin-left: 51vw;
+}
+
+.appName {
+  font-family: "Baloo Paaji 2", cursive;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+.homeText {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-size: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 1em;
+  padding-left: 1em;
+  color: #000;
+  /* font-family: "IBM Plex Mono", monospace; */
+  font-weight: 500;
+  text-justify: inter-word;
+  background-color: #ffffffa2;
+  border-radius: 4px;
+}
+
+.callToAction {
+  font-family: "Baloo Paaji 2", cursive;
+  font-weight: 600;
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+
 @media (max-width: 500px) {
-  .home {
-    padding: 100px 40px;
+  .about {
+    max-width: 75%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

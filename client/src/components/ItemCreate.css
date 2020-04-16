@@ -1,10 +1,34 @@
-.create-form {
-  padding-top: 50px;
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap");
+
+.create-item-form {
+  display: block;
+  width: 50vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10em;
+}
+
+.all-item-info {
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  border: 0.5px solid black;
+  color: #000;
+  text-align: center;
+  background-color: #ffffffa2;
+}
+
+.create-form-item {
   height: 100%;
   width: 100%;
   justify-content: space-evenly;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 input:focus,
@@ -13,56 +37,85 @@ select:focus {
   outline: none;
 }
 
-input,
-textarea {
-  font-size: 48px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+.input-name-item,
+.input-prefQty-item,
+.input-onHandQty-item,
+.input-image-link-item,
+.textarea-description-item {
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border-bottom: 0.5px solid #8a8181f9;
+  margin-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1em;
 }
 
-textarea {
-  font-size: 24px;
+.input-prefQty-item value {
+}
+
+::placeholder {
+  margin-left: 1em;
+  background-color: transparent;
+  padding: 0.2em 0.5em;
+  font-size: 1.2em;
+}
+
+.textarea-description-item {
+  font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
 }
 
-.input-name {
-  font-size: 48px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.input-price {
-  padding-left: 10px;
-  font-size: 24px;
+.input-name-item {
+  font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  background-color: transparent;
+  margin-top: none;
 }
 
-.input-image-link {
-  font-size: 18px;
+.input-image-link-item {
+  font-size: 1em;
+  color: #000;
   font-family: Arial, Helvetica, sans-serif;
+  border-bottom: none;
 }
 
-.submit-button {
-  font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 40px;
-  margin-top: 40px;
-  background-color: black;
-  color: white;
-  border: none;
-  box-shadow: 2px 2px 10px 2px #cecece;
+.submit-button-item {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
   cursor: pointer;
+  border-radius: 4px;
+  padding: 0.2em 1em;
+  font-size: 1em;
+  border: 0.5px solid black;
+  color: #000;
+  text-align: center;
+  background-color: #ffffffa2;
 }
 
 @media (max-width: 500px) {
-  .create-form {
-    padding-top: 150px;
+  .submit-button-item {
+    width: 40%;
   }
 
-  input,
-  textarea {
-    font-size: 28px;
+  .create-item-form {
+    width: 75vw;
+  }
+
+  .layout-children {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
   }
 }
