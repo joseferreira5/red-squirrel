@@ -4,8 +4,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 40px;
-  
-  
 }
 
 .sort-container {
@@ -17,9 +15,10 @@
 
 label {
   font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat";
   font-weight: bold;
   padding-right: 10px;
+   
 }
 
 select {
@@ -32,6 +31,7 @@ select {
   .items {
     width: 100%;
     justify-content: space-around;
+    margin: 0 0px 20px 70px;
   }
   .sort-container {
     width: 100%;
