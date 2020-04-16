@@ -18,7 +18,7 @@
   border: 0.5px solid black;
   color: #000;
   text-align: center;
-  background-color: #ffffff8d;
+  background-color: #ffffffa2;
 }
 
 .create-form-item {
@@ -42,7 +42,6 @@ select:focus {
 .input-onHandQty-item,
 .input-image-link-item,
 .textarea-description-item {
-  font-size: 1.2em;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -50,8 +49,14 @@ select:focus {
   text-align: left;
   padding: 0;
   margin: 0;
-  background-color: #ffffff8d;
-  border-bottom: 0.5px solid #cecece;
+  background-color: transparent;
+  border-bottom: 0.5px solid #8a8181f9;
+  margin-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-size: 1em;
+}
+
+.input-prefQty-item value {
 }
 
 ::placeholder {
@@ -64,20 +69,22 @@ select:focus {
 .textarea-description-item {
   font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff8d;
+  background-color: transparent;
 }
 
 .input-name-item {
-  font-size: 1.5em;
+  font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
   color: #000;
-  background-color: #ffffff8d;
+  background-color: transparent;
+  margin-top: none;
 }
 
 .input-image-link-item {
   font-size: 1em;
   color: #000;
   font-family: Arial, Helvetica, sans-serif;
+  border-bottom: none;
 }
 
 .submit-button-item {
@@ -93,16 +100,22 @@ select:focus {
   border: 0.5px solid black;
   color: #000;
   text-align: center;
-  background-color: #ffffff8d;
+  background-color: #ffffffa2;
 }
 
 @media (max-width: 500px) {
-  .create-form {
-    padding-top: 150px;
+  .submit-button-item {
+    width: 40%;
   }
 
-  input,
-  textarea {
-    font-size: 28px;
+  .create-item-form {
+    width: 75vw;
+  }
+
+  .layout-children {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
   }
 }
