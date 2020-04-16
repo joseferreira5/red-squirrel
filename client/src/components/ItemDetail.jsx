@@ -38,7 +38,7 @@ class ItemDetail extends Component {
     const { user } = this.props;
 
     if (deleted) {
-      return <Redirect to={`/items/${user._id}`} />;
+      return <Redirect to={'/items'} />;
     }
 
     return (
