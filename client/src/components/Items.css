@@ -29,7 +29,7 @@ select {
 }
 
 @media (max-width: 500px) {
-  .products {
+  .items {
     width: 100%;
     justify-content: space-around;
   }
