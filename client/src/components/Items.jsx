@@ -1,33 +1,45 @@
-import React, { Component } from "react";
-import "./Items.css";
-import Item from "./Item";
-import Search from "./Search";
-import { AZ, ZA, lowestFirst, highestFirst } from "./Sort";
-import Layout from "./shared/Layout";
-import { getItems } from "../services/items";
+import React, { Component } from 'react';
+
+import Layout from './shared/Layout';
+import Search from './Search';
+import Item from './Item';
+
+import { getItems } from '../services/items';
+import { AZ, ZA, lowestFirst, highestFirst } from './Sort';
+import './Items.css';
 
 class Items extends Component {
   constructor() {
     super();
     this.state = {
       items: [],
-      filterValue: "",
+      filterValue: '',
       filteredItems: null,
-      selectValue: "Featured"
+      selectValue: 'Featured',
     };
   }
-  
-//user props don't include items for some reason 
-  //state in App.js - user doesn't inclue items either 
-  
-  async componentDidMount() {
-    const items = await getItems(this.props.user._id);
-    this.setState({ items });
+
+  componentDidMount() {
+    const { user } = this.props;
+    if (user) {
+      this.fetchItems();
+    }
   }
 
-  handleSearchChange = event => {
+  componentDidUpdate({ user }) {
+    if (!user && this.props.user) {
+      this.fetchItems();
+    }
+  }
+
+  fetchItems = async () => {
+    const items = await getItems(this.props.user.id);
+    this.setState({ items });
+  };
+
+  handleSearchChange = (event) => {
     const filter = () => {
-      const filteredItems = this.state.items.filter(item => {
+      const filteredItems = this.state.items.filter((item) => {
         return item.name
           .toLowerCase()
           .includes(this.state.filterValue.toLowerCase());
@@ -37,29 +49,29 @@ class Items extends Component {
     this.setState({ filterValue: event.target.value }, filter);
   };
 
-  handleSortChange = event => {
+  handleSortChange = (event) => {
     this.setState({ selectValue: event.target.value });
     let input = event.target.value; // a-z
     const { items } = this.state;
     switch (input) {
-      case "name-ascending":
+      case 'name-ascending':
         this.setState({
-          items: AZ(items)
+          items: AZ(items),
         });
         break;
-      case "name-descending":
+      case 'name-descending':
         this.setState({
-          items: ZA(items)
+          items: ZA(items),
         });
         break;
-      case "price-ascending":
+      case 'price-ascending':
         this.setState({
-          items: lowestFirst(items)
+          items: lowestFirst(items),
         });
         break;
-      case "price-descending":
+      case 'price-descending':
         this.setState({
-          items: highestFirst(items)
+          items: highestFirst(items),
         });
         break;
       default:
@@ -67,7 +79,7 @@ class Items extends Component {
     }
   };
 
-  handleSubmit = event => event.preventDefault();
+  handleSubmit = (event) => event.preventDefault();
 
   render() {
     const items = this.state.filteredItems
@@ -75,7 +87,6 @@ class Items extends Component {
       : this.state.items;
     const ITEMS = items.map((item, index) => (
       <Item
-        userId={this.props.user._id}
         itemId={item._id}
         name={item.name}
         imgURL={item.imgURL}
@@ -112,7 +123,7 @@ class Items extends Component {
             </option>
           </select>
         </form>
-        { this.state.items && <div className="items">{ITEMS}</div>}
+        {this.state.items && <div className="items">{ITEMS}</div>}
       </Layout>
     );
   }

@@ -1,4 +1,4 @@
-.product {
+.item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,31 +9,33 @@
   margin-bottom: 60px;
 }
 
-.product:hover {
+.item:hover {
   transform: scale(1.02);
   opacity: 0.9;
 }
 
-.product-image {
+.item-image {
   width: 300px;
 }
 
-.product-name {
+.item-name {
   font-size: 24px;
   padding: 10px;
+  color: black;
 }
 
-.price {
+.item {
   font-size: 18px;
   padding: 10px;
+  color: black;
 }
 
 @media (max-width: 500px) {
-  .product {
+  .item {
     width: 100%;
     margin-bottom: 20px;
   }
-  .product-image {
+  .item-image {
     width: 180px;
     margin: 15px;
     padding: 10px;

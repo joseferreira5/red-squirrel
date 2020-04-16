@@ -1,51 +1,50 @@
-import React, { Component } from "react";
-import "./SignIn.css";
-import { signIn } from "../services/user";
+import React, { Component } from 'react';
+import './SignIn.css';
+import { signIn } from '../services/user';
 
 class SignIn extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: "",
-      password: "",
+      username: '',
+      password: '',
       isError: false,
-      errorMsg: ""
+      errorMsg: '',
     };
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
       isError: false,
-      errorMsg: ""
+      errorMsg: '',
     });
   };
 
-  onSignIn = event => {
+  onSignIn = (event) => {
     event.preventDefault();
 
     const { history, setUser } = this.props;
 
     signIn(this.state)
-      .then(res => {
+      .then((res) => {
         setUser(res.user);
-        history.push(`/items/${res.user._id}`)
       })
-      // .then(() => history.push(`/items/${user._id}`))
-      .catch(error => {
+      .then(() => history.push(`/items`))
+      .catch((error) => {
         console.error(error);
         this.setState({
           isError: true,
-          errorMsg: "Invalid Credentials",
-          username: "",
-          password: ""
+          errorMsg: 'Invalid Credentials',
+          username: '',
+          password: '',
         });
       });
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "danger" : "";
+    const toggleForm = this.state.isError ? 'danger' : '';
     if (this.state.isError) {
       return (
         <button type="submit" className={toggleForm}>

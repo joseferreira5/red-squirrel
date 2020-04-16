@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './ItemEdit.css';
 import { Redirect } from 'react-router-dom';
+
 import Layout from './shared/Layout';
+
 import { getItem, updateItem } from '../services/items';
+import './ItemEdit.css';
 
 class ItemEdit extends Component {
   constructor(props) {
@@ -46,7 +48,7 @@ class ItemEdit extends Component {
     const { item, updated } = this.state;
 
     if (updated) {
-      return <Redirect to={`/items/${this.props.match.params.id}`} />;
+      return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
 
     return (
@@ -74,7 +76,7 @@ class ItemEdit extends Component {
             <input
               className="input-name"
               placeholder="Name"
-              value={item.name}
+              value={item.name || ''}
               name="name"
               required
               autoFocus

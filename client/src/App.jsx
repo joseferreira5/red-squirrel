@@ -1,15 +1,17 @@
-import React, { Component } from "react";
-import "./App.css";
-import Home from "./components/Home";
-import Items from "./components/Items";
-import ItemCreate from "./components/ItemCreate";
-import ItemEdit from "./components/ItemEdit";
-import ItemDetail from "./components/ItemDetail";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { verifyUser } from "./services/user";
-import SignUp from "./components/SignUp";
-import SignIn from "./components/SignIn";
-import SignOut from "./components/SignOut";
+import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import Home from './components/Home';
+import Items from './components/Items';
+import ItemCreate from './components/ItemCreate';
+import ItemEdit from './components/ItemEdit';
+import ItemDetail from './components/ItemDetail';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import SignOut from './components/SignOut';
+
+import { verifyUser } from './services/user';
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -20,13 +22,19 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const user = await verifyUser();
-    if (user) {
-      this.setState({ user });
+    const res = await verifyUser();
+    if (res.user) {
+      this.setUser(res.user);
     }
   }
 
-  setUser = (user) => this.setState({ user });
+  setUser = (user) =>
+    this.setState({
+      user: {
+        ...user,
+        id: user.id || user._id,
+      },
+    });
 
   clearUser = () => this.setState({ user: null });
 
@@ -62,7 +70,7 @@ class App extends Component {
               />
             )}
           />
-          <Route exact path="/items/:userId" render={() => <Items user={user} />} />
+          <Route exact path="/items" render={() => <Items user={user} />} />
           <Route
             exact
             path="/add-item"
@@ -79,7 +87,7 @@ class App extends Component {
           />
           <Route
             exact
-            path="/items/:userId/:itemId"
+            path="/items/detail/:itemId"
             render={(props) => (
               <ItemDetail {...props} history={props.history} user={user} />
             )}

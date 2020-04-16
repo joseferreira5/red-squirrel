@@ -1,24 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap");
-
-
-.cover {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  opacity: 0.88;
-  width: 100%;
-  padding-top: 4.5em;
-  padding-bottom: 0em;
-  margin: 0;
-}
-
-.item-container {
-  display: flex;
-  justify-content: center;
-}
-
-.input-update {
+.item-edit {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +19,8 @@
   align-content: space-between;
 }
 
-.image-container {
+
+.item-container {
   display: flex;
   flex-direction: column;
   align-items: center;
