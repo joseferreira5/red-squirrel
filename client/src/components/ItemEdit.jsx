@@ -14,7 +14,8 @@ class ItemEdit extends Component {
         name: '',
         description: '',
         imgURL: '',
-        price: '',
+        preferredQty: '',
+        onHandQty: '',
       },
       updated: false,
     };
@@ -47,7 +48,7 @@ class ItemEdit extends Component {
     const { item, updated } = this.state;
 
     if (updated) {
-      return <Redirect to={`/items/${this.props.match.params.id}`} />;
+      return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
 
     return (
@@ -74,7 +75,7 @@ class ItemEdit extends Component {
             <input
               className="input-name"
               placeholder="Name"
-              value={item.name}
+              value={item.name || ''}
               name="name"
               required
               autoFocus
@@ -83,16 +84,16 @@ class ItemEdit extends Component {
             <input
               className="input-preferredQty"
               placeholder="preferredQty"
-              value={item.preferredQty}
-              name="Preferred Qty"
+              value={item.preferredQty || ''}
+              name="preferredQty"
               required
               onChange={this.handleChange}
             />
             <input
               className="input-onHandQty"
               placeholder="onHandQty"
-              value={item.onHandQty}
-              name="On Hand Qty"
+              value={item.onHandQty || ''}
+              name="onHandQty"
               required
               onChange={this.handleChange}
             />
@@ -102,7 +103,7 @@ class ItemEdit extends Component {
               rows={10}
               cols={78}
               placeholder="Description"
-              value={item.description}
+              value={item.description || ''}
               name="description"
               required
               onChange={this.handleChange}
