@@ -43,6 +43,7 @@ class ItemCreate extends Component {
     }
     return (
       <Layout user={this.props.user}>
+        <div className="create-item-form">
         <form className="create-form" onSubmit={this.handleSubmit}>
           <input
             className="input-name"
@@ -88,7 +89,8 @@ class ItemCreate extends Component {
           <button type="submit" className="submit-button">
             Submit
           </button>
-        </form>
+          </form>
+          </div>
       </Layout>
     );
   }

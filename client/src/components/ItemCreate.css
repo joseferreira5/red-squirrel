@@ -1,10 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap");
+
+.create-item-form {
+  display: block;
+  width: 50vw;
+  text-align: center;
+  margin-left: 3em;
+}
+
 .create-form {
-  padding-top: 50px;
+  padding-top: 2em;
+  padding-left: 3em;
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   justify-content: space-evenly;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: auto;
 }
 
 input:focus,
@@ -15,45 +28,48 @@ select:focus {
 
 input,
 textarea {
-  font-size: 48px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.2em;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom-style: hidden;
+  text-align: left;
+  padding: 0;
+  margin: 0;
 }
 
 textarea {
-  font-size: 24px;
+  font-size: 1em;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .input-name {
-  font-size: 48px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.input-price {
-  padding-left: 10px;
-  font-size: 24px;
+  font-size: 1.5em;
   font-family: Arial, Helvetica, sans-serif;
+  color: #000;
 }
 
 .input-image-link {
-  font-size: 18px;
+  font-size: 1em;
+  color: #000;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .submit-button {
-  font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
-  height: 40px;
-  margin-top: 40px;
-  background-color: black;
-  color: white;
-  border: none;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
   box-shadow: 2px 2px 10px 2px #cecece;
   cursor: pointer;
+  border-radius: 4px;
+  padding: 0.2em 1em;
+  font-size: 1em;
+  border: 0.5px solid black;
+  color: #000;
+  text-align: center;
+  background-color: white;
 }
 
 @media (max-width: 500px) {

@@ -12,12 +12,9 @@ body {
 .layout {
   display: flex;
   flex-direction: column;
-
   margin: 0;
   text-align: center;
-  
   min-height: 91vh;
-
 }
 
 .layout-children {
@@ -25,7 +22,7 @@ body {
   padding: 0px;
 }
 
-.cover {
+.cover body{
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
