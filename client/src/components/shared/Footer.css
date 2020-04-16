@@ -1,9 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap');
 
 .Footer {
   display: flex;
@@ -11,7 +6,7 @@
   align-items: center;
   flex: 1;
 
-  font-family: "Baloo Paaji 2", cursive;
+  font-family: 'Baloo Paaji 2', cursive;
   color: #ffffff;
   text-align: center;
   padding-top: 0.5em;
@@ -25,6 +20,3 @@
   left: 0;
 }
 
-@media (max-width: 500px) {
- 
-}

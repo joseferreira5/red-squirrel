@@ -51,8 +51,8 @@ class ItemDetail extends Component {
           />
           <div className="detail">
             <div className="name">{item.name}</div>
-            <div className="onHandQty">{item.onHandQty}</div>
-            <div className="preferredQty">{item.preferredQty}</div>
+            <div className="preferredQty">Preferred: {item.preferredQty}</div>
+            <div className="onHandQty">On hand: {item.onHandQty}</div>
             <div className="description">{item.description}</div>
             <div className="button-container">
               <button className="edit-button">
