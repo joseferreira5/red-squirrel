@@ -12,7 +12,8 @@ class ItemEdit extends Component {
         name: '',
         description: '',
         imgURL: '',
-        price: '',
+        preferredQty: '',
+        onHandQty: '',
       },
       updated: false,
     };
@@ -50,6 +51,7 @@ class ItemEdit extends Component {
 
     return (
       <Layout user={this.props.user}>
+      <div className="item-container">
         <div className="item-edit">
           <div className="image-container">
             <img
@@ -78,37 +80,56 @@ class ItemEdit extends Component {
               autoFocus
               onChange={this.handleChange}
             />
-            <input
-              className="input-preferredQty"
-              placeholder="preferredQty"
-              value={item.preferredQty}
-              name="Preferred Qty"
-              required
-              onChange={this.handleChange}
-            />
-              <input
-              className="input-onHandQty"
-              placeholder="onHandQty"
-              value={item.onHandQty}
-              name="On Hand Qty"
-              required
-              onChange={this.handleChange}
-            />
 
             <textarea
               className="textarea-description"
-              rows={10}
-              cols={78}
+              rows={1}
+              cols={1}
               placeholder="Description"
               value={item.description}
               name="description"
               required
               onChange={this.handleChange}
             />
+            <input
+              className="input-preferredQty"
+              placeholder="Preferred Qty"
+              value={item.preferredQty}
+              name="Preferred Qty"
+              required
+              onChange={this.handleChange}
+            />
+           <div className="preferred">
+            <button type="submit" className="addQty-button">
+              +
+            </button>
+            <button type="submit" className="subQty-button">
+              -
+            </button>
+            </div>
+            
+              <input
+              className="input-onHandQty"
+              placeholder="On Hand Qty"
+              value={item.onHandQty}
+              name="On Hand Qty"
+              required
+              onChange={this.handleChange}
+            />   
+            <div className="onHand">
+            <button type="submit" className="addQty-button">
+              +
+            </button>  
+             <button type="submit" className="subQty-button">
+              -
+            </button>
+            </div>
             <button type="submit" className="save-button">
               Save
             </button>
           </form>
+          
+          </div>
         </div>
       </Layout>
     );
