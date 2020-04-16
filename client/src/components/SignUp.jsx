@@ -1,51 +1,52 @@
-import React, { Component } from 'react';
-import './SignUp.css';
-import { signUp, signIn } from '../services/user';
+import React, { Component } from "react";
+import "./SignUp.css";
+import { signUp, signIn } from "../services/user";
+import Layout from "./shared/Layout";
 
 class SignUp extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: '',
-      email: '',
-      password: '',
-      passwordConfirmation: '',
+      username: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
       isError: false,
-      errorMsg: '',
+      errorMsg: ""
     };
   }
 
-  handleChange = (event) =>
+  handleChange = event =>
     this.setState({
       [event.target.name]: event.target.value,
       isError: false,
-      errorMsg: '',
+      errorMsg: ""
     });
 
-  onSignUp = (event) => {
+  onSignUp = event => {
     event.preventDefault();
 
     const { history, setUser } = this.props;
 
     signUp(this.state)
       .then(() => signIn(this.state))
-      .then((res) => setUser(res.user))
-      .then(() => history.push('/'))
-      .catch((error) => {
+      .then(res => setUser(res.user))
+      .then(() => history.push("/"))
+      .catch(error => {
         console.error(error);
         this.setState({
-          email: '',
-          password: '',
-          passwordConfirmation: '',
+          email: "",
+          password: "",
+          passwordConfirmation: "",
           isError: true,
-          errorMsg: 'Sign Up Details Invalid',
+          errorMsg: "Sign Up Details Invalid"
         });
       });
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? 'danger' : '';
+    const toggleForm = this.state.isError ? "danger" : "";
     if (this.state.isError) {
       return (
         <button type="submit" className={toggleForm}>
@@ -53,7 +54,11 @@ class SignUp extends Component {
         </button>
       );
     } else {
-      return <button type="submit">Sign Up</button>;
+      return (
+        <button className="signup-button" type="submit">
+          Sign Up
+        </button>
+      );
     }
   };
 
@@ -61,6 +66,7 @@ class SignUp extends Component {
     const { email, username, password, passwordConfirmation } = this.state;
 
     return (
+      <Layout>
       <div className="form-container">
         <h3>Sign Up</h3>
         <form onSubmit={this.onSignUp}>
@@ -103,6 +109,7 @@ class SignUp extends Component {
           {this.renderError()}
         </form>
       </div>
+       </Layout>
     );
   }
 }

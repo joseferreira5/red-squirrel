@@ -51,7 +51,7 @@ nav {
   left: 0;
 }
 
-.nav {
+.nav{
   display: flex;
   padding: 20px 0;
   box-shadow: 1px 1px 1px 0.3px #f75e39;
@@ -59,6 +59,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .link {
@@ -95,9 +96,13 @@ nav {
   color: #ffffff;
 }
 
-a {
+.nav a {
   text-decoration: none;
   color: #ffffff;
+}
+
+a{
+  text-decoration: none;
 }
 
 @media (max-width: 500px) {

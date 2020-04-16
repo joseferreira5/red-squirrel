@@ -9,18 +9,19 @@
   margin-bottom: 60px;
 }
 
-.product:hover {
+.item:hover {
   transform: scale(1.02);
   opacity: 0.9;
 }
 
-.product-image {
+.item-image {
   width: 300px;
 }
 
-.product-name {
+.item-name {
   font-size: 24px;
   padding: 10px;
+  color: black;
 }
 
 .price {

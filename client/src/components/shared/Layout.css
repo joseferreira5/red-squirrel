@@ -7,17 +7,20 @@ html,
 body {
   margin: 0;
   height: 100%;
+  background-image: url(../../Images/background.png);
+  background-size: cover;
+  
+ 
+
 }
 
 .layout {
   display: flex;
   flex-direction: column;
-
   margin: 0;
   text-align: center;
-  
+  width: 100%;
   min-height: 91vh;
-
 }
 
 .layout-children {
