@@ -7,17 +7,19 @@ html,
 body {
   margin: 0;
   height: 100%;
+ 
+  
+ 
+
 }
 
 .layout {
   display: flex;
   flex-direction: column;
-
   margin: 0;
   text-align: center;
-  
+  width: 100%;
   min-height: 91vh;
-
 }
 
 .layout-children {
@@ -25,17 +27,6 @@ body {
   padding: 0px;
 }
 
-.cover {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  opacity: 0.88;
-  width: 100%;
-  padding-top: 4.5em;
-  padding-bottom: 0em;
-  margin: 0;
-}
 
 @media (max-width: 500px) {
   .layout {
