@@ -1,7 +1,8 @@
-import React from "react";
-import "./Nav.css";
-import { NavLink } from "react-router-dom";
-import Mascot from "../../Images/mascot.png";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+import Mascot from '../../Images/mascot.png';
+import './Nav.css';
 
 const unauthenticatedOptions = (
   <>
@@ -14,25 +15,21 @@ const unauthenticatedOptions = (
   </>
 );
 
+const authenticatedOptions = (
+  <>
+    <NavLink className="link" to="/items">
+      Inventory
+    </NavLink>
+    <NavLink className="link" to="/add-item">
+      Add Item
+    </NavLink>
+    <NavLink className="link" to="/sign-out">
+      Sign Out
+    </NavLink>
+  </>
+);
+
 const Nav = ({ user }) => {
-  const authenticatedOptions = (
-    <>
-      {user && (
-        <NavLink className="link" to={`/items/${user._id}`}>
-          Inventory
-        </NavLink>
-      )}
-
-      <NavLink className="link" to="/add-item">
-        Add Item
-      </NavLink>
-
-      <NavLink className="link" to="/sign-out">
-        Sign Out
-      </NavLink>
-    </>
-  );
-
   return (
     <nav>
       <div className="header">
