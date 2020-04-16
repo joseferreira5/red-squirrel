@@ -66,7 +66,6 @@ class SignUp extends Component {
     const { email, username, password, passwordConfirmation } = this.state;
 
     return (
-      <Layout>
       <div className="form-container">
         <h3>Sign Up</h3>
         <form onSubmit={this.onSignUp}>
@@ -109,7 +108,6 @@ class SignUp extends Component {
           {this.renderError()}
         </form>
       </div>
-       </Layout>
     );
   }
 }
