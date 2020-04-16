@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import './Items.css';
-import Item from './Item';
-import Search from './Search';
-import { AZ, ZA, lowestFirst, highestFirst } from './Sort';
+
 import Layout from './shared/Layout';
+import Search from './Search';
+import Item from './Item';
+
 import { getItems } from '../services/items';
+import { AZ, ZA, lowestFirst, highestFirst } from './Sort';
+import './Items.css';
 
 class Items extends Component {
   constructor() {
@@ -17,13 +19,23 @@ class Items extends Component {
     };
   }
 
-  //user props don't include items for some reason
-  //state in App.js - user doesn't inclue items either
-
-  async componentDidMount() {
-    const items = await getItems(this.props.user._id);
-    this.setState({ items });
+  componentDidMount() {
+    const { user } = this.props;
+    if (user) {
+      this.fetchItems();
+    }
   }
+
+  componentDidUpdate({ user }) {
+    if (!user && this.props.user) {
+      this.fetchItems();
+    }
+  }
+
+  fetchItems = async () => {
+    const items = await getItems(this.props.user.id);
+    this.setState({ items });
+  };
 
   handleSearchChange = (event) => {
     const filter = () => {

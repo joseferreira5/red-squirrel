@@ -22,13 +22,19 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const user = await verifyUser();
-    if (user) {
-      this.setState({ user });
+    const res = await verifyUser();
+    if (res.user) {
+      this.setUser(res.user);
     }
   }
 
-  setUser = (user) => this.setState({ user });
+  setUser = (user) =>
+    this.setState({
+      user: {
+        ...user,
+        id: user.id || user._id,
+      },
+    });
 
   clearUser = () => this.setState({ user: null });
 
@@ -64,11 +70,7 @@ class App extends Component {
               />
             )}
           />
-          <Route
-            exact
-            path="/items/:userId"
-            render={() => <Items user={user} />}
-          />
+          <Route exact path="/items" render={() => <Items user={user} />} />
           <Route
             exact
             path="/add-item"

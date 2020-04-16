@@ -33,7 +33,7 @@ class ItemCreate extends Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    const created = await createItem(this.state.item, this.props.user._id);
+    const created = await createItem(this.state.item, this.props.user.id);
     this.setState({ created });
   };
 
@@ -41,7 +41,7 @@ class ItemCreate extends Component {
     const { item, created } = this.state;
 
     if (created) {
-      return <Redirect to={`/items/${this.props.user._id}`} />;
+      return <Redirect to={'/items'} />;
     }
     return (
       <Layout user={this.props.user}>
