@@ -7,6 +7,10 @@
   transition: 250ms all;
   padding: 20px;
   margin-bottom: 60px;
+  background-color: #ffffff77;
+  font-size: 18px;
+  padding: 10px;
+  color: black;
 }
 
 .item:hover {
@@ -15,19 +19,22 @@
 }
 
 .item-image {
-  width: 300px;
+  width: 150px;
+  height: 150px;
 }
 
 .item-name {
   font-size: 24px;
+  font-weight: 525;
   padding: 10px;
   color: black;
+  text-shadow: 1px 1px 1px white;
 }
 
-.item {
+
+.onhand-qty-header {
   font-size: 18px;
-  padding: 10px;
-  color: black;
+  font-weight: 200;
 }
 
 @media (max-width: 500px) {
