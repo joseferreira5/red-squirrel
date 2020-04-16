@@ -9,9 +9,9 @@ export const getItems = async (userId) => {
   }
 };
 
-export const getItem = async (userId, itemId) => {
+export const getItem = async (itemId) => {
   try {
-    const response = await api.get(`/items/${userId}/${itemId}`);
+    const response = await api.get(`/items/detail/${itemId}`);
     return response.data;
   } catch (error) {
     throw error;
