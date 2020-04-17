@@ -8,9 +8,12 @@
   display: block;
   text-align: center;
   margin-top: 10em;
-  line-height: 1.5em;
+  line-height: 2em;
   /* margin-left: auto; */
   margin-left: 51vw;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
+  border: 0.5px solid black;
+  border-radius: 4px;
 }
 
 .appName {
@@ -20,9 +23,9 @@
 }
 
 .homeText {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  font-size: 1em;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  font-size: 1.5em;
   margin-left: auto;
   margin-right: auto;
   padding-right: 1em;
@@ -47,5 +50,8 @@
     max-width: 75%;
     margin-right: auto;
     margin-left: auto;
+  }
+  .homeText {
+    font-size: 1.2em;
   }
 }
