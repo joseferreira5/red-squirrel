@@ -134,7 +134,7 @@ class ItemEdit extends Component {
                 <button onClick={this.addButtonQty} name="onHandQty">
                   +
                 </button>
-                <span> {item.onHandQty} </span>
+                <span>{item.onHandQty}</span>
                 <button onClick={this.subButtonQty} name="onHandQty">
                   -
                 </button>
@@ -144,50 +144,6 @@ class ItemEdit extends Component {
               </button>
             </form>
           </div>
-          <form className="edit-form" onSubmit={this.handleSubmit}>
-            <input
-              className="input-name"
-              placeholder="Name"
-              value={item.name || ''}
-              name="name"
-              required
-              autoFocus
-              onChange={this.handleChange}
-            />
-            <textarea
-              className="textarea-description"
-              rows={1}
-              cols={1}
-              placeholder="Description"
-              value={item.description}
-              name="description"
-              required
-              onChange={this.handleChange}
-            />
-            <div className="preferred">
-              <p>Preferred Quantity</p>
-              <button onClick={this.addButtonQty} name="preferredQty">
-                +
-              </button>
-              <span>{item.preferredQty}</span>
-              <button onClick={this.subButtonQty} name="preferredQty">
-                -
-              </button>
-            </div>
-            <div className="onHand">
-              <p>On Hand Quantity</p>
-              <button onClick={this.addButtonQty} name="onHandQty">
-                +
-              </button>
-              <span>{item.onHandQty}</span>
-              <button onClick={this.subButtonQty} name="onHandQty">
-                -
-              </button>
-            </div>
-            <button type="submit" className="save-button">
-              Save
-            </button>
-          </form>
         </div>
       </Layout>
     );
