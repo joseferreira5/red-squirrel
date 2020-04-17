@@ -1,16 +1,16 @@
-
 .item-edit {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px;
-  padding-top: 80px;
+  padding-top: 2em;
+  padding-bottom: 2em;
   flex-direction: column;
   text-align: center;
-  width: 35% 30% 35%;
-  border: 2px solid #81b9bf;
+  border: 0.125px solid #2b2d2f;
   align-content: space-between;
-  background-color: rgba(255, 255, 255, 0.37);
+  background-color: #ffffff;
+  opacity: 0.9;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .item-edit:before {
@@ -20,33 +20,28 @@
   top: -35px;
 }
 
-
-
-.item-container {
+.item-container-edit {
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   align-content: center;
+  margin-top: 3.5em;
 }
 
-.edit-item-image {
-  height: 200px;
-  width: 200px;
-  padding: 0 40px;
-  padding-bottom: 5px;
-  
-}
+/* .edit-item-image {  
+ margin-bottom: .5em; 
+} */
 
 .edit-input-image-link {
-  height: 25%;
-  width: 75%;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
   text-align: center;
-  font-size: 20px;
-  font-family: "Baloo Paaji 2", cursive;
-  background-color: rgba(255, 255, 255, 0.096);
-
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 
 .edit-form {
@@ -54,45 +49,42 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  font-family: "Baloo Paaji 2", cursive;
-  line-height: 1.6;
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0);
-
+  font-size: 1em;
+  margin-bottom: 2em;
 }
 
 .input-name {
-  font-family: "Baloo Paaji 2", cursive;
-  font-size: 64px;
+  font-size: 1.5em;
   text-align: center;
-  letter-spacing: 1px;
-  padding: 5px;
+  padding: 0.5em;
   color: black;
   background-color: rgba(255, 255, 255, 0.096);
 }
 
 .textarea-description {
-  font-family: "Baloo Paaji 2", cursive;
-  font-size: 16px;
+  font-size: 1.5em;
   text-align: center;
-  letter-spacing: 0.9px;
-  line-height: 2;
-  background-color: rgba(255, 255, 255, 0.096);
-
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  color: black;
+  margin-bottom: 1.5em;
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
-.preferred {
+/* .preferred {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.096);
-
-}
+} */
 
 .input-preferredQty {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.096);
-
 }
 
 .onHand {
@@ -100,32 +92,27 @@
   flex-direction: row;
   justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.096);
-
 }
 
 .input-onHandQty {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.096);
-
 }
 
-button:hover{
+button:hover {
   background: #356094;
 }
 
 .save-button {
-  font-size: 22px;
-  font-family: "Baloo Paaji 2", cursive;
-  height: 40px;
-  width: 200px;
-  background-color: #81b9bf;
+  font-size: 1.5em;
+  box-shadow: 2px 2px 10px 2px #cecece;
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-color: black;
   color: white;
-  border: none;
   box-shadow: 2px 2px 10px 2px #cecece;
   cursor: pointer;
-  text-align: center;
-  margin: auto;
-  line-height: 20px;
+  margin-top: 1.5em;
 }
 
 @media (max-width: 500px) {

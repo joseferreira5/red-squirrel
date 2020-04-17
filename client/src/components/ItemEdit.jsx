@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Layout from './shared/Layout';
-import { getItem, updateItem } from '../services/items';
-import './ItemEdit.css';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Layout from "./shared/Layout";
+import { getItem, updateItem } from "../services/items";
+import "./ItemEdit.css";
 
 class ItemEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
       item: {
-        name: '',
-        description: '',
-        imgURL: '',
+        name: "",
+        description: "",
+        imgURL: "",
         preferredQty: 0,
         onHandQty: 0,
-        show: true
+        show: true,
       },
       updated: false,
     };
@@ -22,7 +22,11 @@ class ItemEdit extends Component {
   async componentDidMount() {
     let { id } = this.props.match.params;
     const item = await getItem(id);
-    this.setState({ ...item, preferredQty: parseInt(item.preferredQty), onHandQty: parseInt(item.onHandQty) });
+    this.setState({
+      ...item,
+      preferredQty: parseInt(item.preferredQty),
+      onHandQty: parseInt(item.onHandQty),
+    });
   }
   handleChange = (event) => {
     const { name, value } = event.target;
@@ -41,14 +45,14 @@ class ItemEdit extends Component {
   };
   addButtonQty = (event) => {
     const { name } = event.target;
-    this.setState(prevState => ({
-      [name]: parseInt(prevState[name]) + 1
+    this.setState((prevState) => ({
+      [name]: parseInt(prevState[name]) + 1,
     }));
   };
   subButtonQty = (event) => {
-    const { name} = event.target;
-    this.setState(prevState => ({
-      [name]: prevState[name] - 1
+    const { name } = event.target;
+    this.setState((prevState) => ({
+      [name]: prevState[name] - 1,
     }));
   };
   ToggleClick = () => {
@@ -59,69 +63,92 @@ class ItemEdit extends Component {
     if (updated) {
       return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
-    let { count } = this.state
+    let { count } = this.state;
     return (
       <Layout user={this.props.user}>
-      <div className="item-container">
-        <div className="item-edit">
-          <div className="image-container">
-            <img
-              className="edit-item-image"
-              src={item.imgURL}
-              alt={item.name}
-            />
-            <form onSubmit={this.handleSubmit}>
+        <div className="item-container-edit">
+          <div className="item-edit">
+            <div className="image-container">
+              <img
+                className="edit-item-image"
+                src={item.imgURL}
+                alt={item.name}
+              />
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  className="edit-input-image-link"
+                  placeholder="Image URL"
+                  value={item.imgURL}
+                  name="imgURL"
+                  required
+                  onChange={this.handleChange}
+                />
+              </form>
+            </div>
+            <form className="edit-form" onSubmit={this.handleSubmit}>
               <input
-                className="edit-input-image-link"
-                placeholder="Image URL"
-                value={item.imgURL}
-                name="imgURL"
+                className="input-name"
+                placeholder="Name"
+                value={item.name || ""}
+                name="name"
+                required
+                autoFocus
+                onChange={this.handleChange}
+              />
+              <textarea
+                className="textarea-description"
+                rows={1}
+                cols={1}
+                placeholder="Description"
+                value={item.description}
+                name="description"
                 required
                 onChange={this.handleChange}
               />
+              <div className="preferred">
+                <div>
+                  <p>Preferred Quantity</p>
+                  <span>
+                    <button
+                      className="add"
+                      onClick={this.addButtonQty}
+                      name="preferredQty"
+                    >
+                      +
+                    </button>
+                  </span>
+                  <span> {this.state.preferredQty} </span>
+                  <span>
+                    <button
+                      className="sub"
+                      onClick={this.subButtonQty}
+                      name="preferredQty"
+                    >
+                      -
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div className="onHand">
+                <div>
+                  <p>On Hand Quantity</p>
+                  <span>
+                    <button onClick={this.addButtonQty} name="onHandQty">
+                      +
+                    </button>
+                  </span>
+                  <span> {this.state.onHandQty} </span>
+                  <span>
+                    <button onClick={this.subButtonQty} name="onHandQty">
+                      -
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <button type="submit" className="save-button">
+                Save
+              </button>
             </form>
-          </div>
-          <form className="edit-form" onSubmit={this.handleSubmit}>
-            <input
-              className="input-name"
-              placeholder="Name"
-              value={item.name || ''}
-              name="name"
-              required
-              autoFocus
-              onChange={this.handleChange}
-            />
-          <textarea
-              className="textarea-description"
-              rows={1}
-              cols={1}
-              placeholder="Description"
-              value={item.description}
-              name="description"
-              required
-              onChange={this.handleChange}
-            />
-           <div className="preferred">
-           <div>
-             <p>Preferred Quantity</p>
-             <span><button onClick={this.addButtonQty} name='preferredQty'>+</button></span>
-              <span>  {this.state.preferredQty}  </span>
-              <span><button onClick={this.subButtonQty} name='preferredQty'>-</button></span>
-           </div>
-            </div> 
-            <div className="onHand">
-            <div>
-              <p>On Hand Quantity</p>
-           <span><button onClick={this.addButtonQty} name='onHandQty'>+</button></span>
-            <span>  {this.state.onHandQty}  </span>
-            <span><button onClick={this.subButtonQty} name='onHandQty'>-</button></span>
-        </div>
-            </div>
-            <button type="submit" className="save-button">
-              Save
-            </button>
-          </form>
-          
           </div>
         </div>
       </Layout>
