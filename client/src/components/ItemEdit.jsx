@@ -18,19 +18,21 @@ class ItemEdit extends Component {
       updated: false,
     };
   }
-  
+
   async componentDidMount() {
     let { id } = this.props.match.params;
     const item = await getItem(id);
-    this.setState({ item: {
-      name: item.name,
-      description: item.description,
-      imgURL: item.imgURL,
-      preferredQty: parseInt(item.preferredQty), 
-      onHandQty: parseInt(item.onHandQty) 
-    }});
+    this.setState({
+      item: {
+        name: item.name,
+        description: item.description,
+        imgURL: item.imgURL,
+        preferredQty: parseInt(item.preferredQty),
+        onHandQty: parseInt(item.onHandQty),
+      },
+    });
   }
-  
+
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -49,24 +51,24 @@ class ItemEdit extends Component {
   };
 
   addButtonQty = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const { name } = event.target;
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       item: {
         ...this.state.item,
-        [name]: prevState.item[name] + 1
-      }
+        [name]: prevState.item[name] + 1,
+      },
     }));
   };
 
   subButtonQty = (event) => {
-    event.preventDefault()
-    const { name} = event.target;
-    this.setState(prevState => ({
+    event.preventDefault();
+    const { name } = event.target;
+    this.setState((prevState) => ({
       item: {
         ...this.state.item,
-        [name]: prevState.item[name] - 1
-      }
+        [name]: prevState.item[name] - 1,
+      },
     }));
   };
 
@@ -75,64 +77,72 @@ class ItemEdit extends Component {
     if (updated) {
       return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
-    
+
     return (
       <Layout user={this.props.user}>
-      <div className="item-container">
-        <div className="item-edit">
-          <div className="image-container">
-            <img
-              className="edit-item-image"
-              src={item.imgURL}
-              alt={item.name}
-            />
-            <form onSubmit={this.handleSubmit}>
+        <div className="item-container">
+          <div className="item-edit">
+            <div className="image-container">
+              <img
+                className="edit-item-image"
+                src={item.imgURL}
+                alt={item.name}
+              />
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  className="edit-input-image-link"
+                  placeholder="Image URL"
+                  value={item.imgURL}
+                  name="imgURL"
+                  required
+                  onChange={this.handleChange}
+                />
+              </form>
+            </div>
+            <form className="edit-form" onSubmit={this.handleSubmit}>
               <input
-                className="edit-input-image-link"
-                placeholder="Image URL"
-                value={item.imgURL}
-                name="imgURL"
+                className="input-name"
+                placeholder="Name"
+                value={item.name}
+                name="name"
+                required
+                autoFocus
+                onChange={this.handleChange}
+              />
+              <textarea
+                className="textarea-description"
+                rows={1}
+                cols={1}
+                placeholder="Description"
+                value={item.description}
+                name="description"
                 required
                 onChange={this.handleChange}
               />
+              <div className="preferred">
+                <p>Preferred Quantity</p>
+                <button onClick={this.addButtonQty} name="preferredQty">
+                  +
+                </button>
+                <span> {item.preferredQty} </span>
+                <button onClick={this.subButtonQty} name="preferredQty">
+                  -
+                </button>
+              </div>
+              <div className="onHand">
+                <p>On Hand Quantity</p>
+                <button onClick={this.addButtonQty} name="onHandQty">
+                  +
+                </button>
+                <span>{item.onHandQty}</span>
+                <button onClick={this.subButtonQty} name="onHandQty">
+                  -
+                </button>
+              </div>
+              <button type="submit" className="save-button">
+                Save
+              </button>
             </form>
-          </div>
-          <form className="edit-form" onSubmit={this.handleSubmit}>
-            <input
-              className="input-name"
-              placeholder="Name"
-              value={item.name || ''}
-              name="name"
-              required
-              autoFocus
-              onChange={this.handleChange}
-            />
-            <textarea
-              className="textarea-description"
-              rows={1}
-              cols={1}
-              placeholder="Description"
-              value={item.description}
-              name="description"
-              required
-              onChange={this.handleChange}
-             />
-            <div className="preferred">
-             <p>Preferred Quantity</p>
-             <button onClick={this.addButtonQty} name='preferredQty'>+</button>
-               <span>{item.preferredQty}</span>
-             <button onClick={this.subButtonQty} name='preferredQty'>-</button>
-            </div> 
-            <div className="onHand">
-             <p>On Hand Quantity</p>
-             <button onClick={this.addButtonQty} name='onHandQty'>+</button>
-               <span>{item.onHandQty}</span>
-             <button onClick={this.subButtonQty} name='onHandQty'>-</button>
-            </div>
-            <button type="submit" className="save-button">
-              Save
-            </button>
-          </form>
           </div>
         </div>
       </Layout>
