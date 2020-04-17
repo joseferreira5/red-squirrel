@@ -115,11 +115,11 @@ class Items extends Component {
             <option value="name-descending">
               &nbsp; Alphabetically, Z-A &nbsp;
             </option>
-            <option value="price-ascending">
-              &nbsp; Price, low to high &nbsp;
+            <option value="qty-ascending">
+              &nbsp; Quantity, low to high &nbsp;
             </option>
-            <option value="price-descending">
-              &nbsp; Price, high to low &nbsp;
+            <option value="qty-descending">
+              &nbsp; Quantity, high to low &nbsp;
             </option>
           </select>
         </form>
