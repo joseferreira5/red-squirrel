@@ -14,16 +14,23 @@ class ItemEdit extends Component {
         imgURL: '',
         preferredQty: 0,
         onHandQty: 0,
-        show: true
       },
       updated: false,
     };
   }
+  
   async componentDidMount() {
     let { id } = this.props.match.params;
     const item = await getItem(id);
-    this.setState({ ...item, preferredQty: parseInt(item.preferredQty), onHandQty: parseInt(item.onHandQty) });
+    this.setState({ item: {
+      name: item.name,
+      description: item.description,
+      imgURL: item.imgURL,
+      preferredQty: parseInt(item.preferredQty), 
+      onHandQty: parseInt(item.onHandQty) 
+    }});
   }
+  
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -33,33 +40,42 @@ class ItemEdit extends Component {
       },
     });
   };
+
   handleSubmit = async (event) => {
     event.preventDefault();
     let { id } = this.props.match.params;
     const updated = await updateItem(id, this.state.item);
     this.setState({ updated });
   };
+
   addButtonQty = (event) => {
+    event.preventDefault()
     const { name } = event.target;
     this.setState(prevState => ({
-      [name]: parseInt(prevState[name]) + 1
+      item: {
+        ...this.state.item,
+        [name]: prevState.item[name] + 1
+      }
     }));
   };
+
   subButtonQty = (event) => {
+    event.preventDefault()
     const { name} = event.target;
     this.setState(prevState => ({
-      [name]: prevState[name] - 1
+      item: {
+        ...this.state.item,
+        [name]: prevState.item[name] - 1
+      }
     }));
   };
-  ToggleClick = () => {
-    this.setState({ show: !this.state.show });
-  };
+
   render() {
     const { item, updated } = this.state;
     if (updated) {
       return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
-    let { count } = this.state
+    
     return (
       <Layout user={this.props.user}>
       <div className="item-container">
@@ -91,7 +107,7 @@ class ItemEdit extends Component {
               autoFocus
               onChange={this.handleChange}
             />
-          <textarea
+            <textarea
               className="textarea-description"
               rows={1}
               cols={1}
@@ -100,28 +116,23 @@ class ItemEdit extends Component {
               name="description"
               required
               onChange={this.handleChange}
-            />
-           <div className="preferred">
-           <div>
+             />
+            <div className="preferred">
              <p>Preferred Quantity</p>
-             <span><button onClick={this.addButtonQty} name='preferredQty'>+</button></span>
-              <span>  {this.state.preferredQty}  </span>
-              <span><button onClick={this.subButtonQty} name='preferredQty'>-</button></span>
-           </div>
+             <button onClick={this.addButtonQty} name='preferredQty'>+</button>
+               <span>{item.preferredQty}</span>
+             <button onClick={this.subButtonQty} name='preferredQty'>-</button>
             </div> 
             <div className="onHand">
-            <div>
-              <p>On Hand Quantity</p>
-           <span><button onClick={this.addButtonQty} name='onHandQty'>+</button></span>
-            <span>  {this.state.onHandQty}  </span>
-            <span><button onClick={this.subButtonQty} name='onHandQty'>-</button></span>
-        </div>
+             <p>On Hand Quantity</p>
+             <button onClick={this.addButtonQty} name='onHandQty'>+</button>
+               <span>{item.onHandQty}</span>
+             <button onClick={this.subButtonQty} name='onHandQty'>-</button>
             </div>
             <button type="submit" className="save-button">
               Save
             </button>
           </form>
-          
           </div>
         </div>
       </Layout>
