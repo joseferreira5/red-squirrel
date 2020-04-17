@@ -7,26 +7,27 @@
   margin: 20px;
 }
 
-.sort-container {
-  display: flex;
-  width: 83.5vw;
-  justify-content: flex-end;
-  margin: 20px;
-}
 
-label {
-  font-size: 18px;
+.sort-label {
+  font-size: 20px;
   font-family: "Montserrat";
-  font-weight: bold;
+  font-weight: 400;
   padding-right: 10px;
+  color: transparent;
+  text-shadow: 1px 1px 1px black;
    
 }
 
-select {
+.sort {
   cursor: pointer;
   border: none;
   font-size: 18px;
+  Font-family: "Montserrat";
+  background-color: rgba(255, 255, 255, 0.808);
+ 
 }
+
+
 
 @media (max-width: 500px) {
   .items {
@@ -34,9 +35,5 @@ select {
     justify-content: space-around;
     margin: 0 0px 20px 70px;
   }
-  .sort-container {
-    width: 100%;
-    justify-content: center;
-    margin: 0px;
-  }
+
 }
