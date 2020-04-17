@@ -81,7 +81,7 @@ class ItemEdit extends Component {
     return (
       <Layout user={this.props.user}>
         <div className="edit-item-container">
-          <div className="item-edit">
+          <div className="edit-item-edit">
             <div className="image-container-edit">
               <img
                 className="edit-item-image"
@@ -101,7 +101,7 @@ class ItemEdit extends Component {
             </div>
             <form className="edit-form-edit" onSubmit={this.handleSubmit}>
               <input
-                className="input-name"
+                className="input-name-edit"
                 placeholder="Name"
                 value={item.name}
                 name="name"
