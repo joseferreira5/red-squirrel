@@ -64,12 +64,12 @@ class Items extends Component {
           items: ZA(items),
         });
         break;
-      case 'price-ascending':
+      case 'onHandQty-ascending':
         this.setState({
           items: lowestFirst(items),
         });
         break;
-      case 'price-descending':
+      case 'onHandQty-descending':
         this.setState({
           items: highestFirst(items),
         });
@@ -115,10 +115,10 @@ class Items extends Component {
             <option value="name-descending">
               &nbsp; Alphabetically, Z-A &nbsp;
             </option>
-            <option value="qty-ascending">
+            <option value="onHandQty-ascending">
               &nbsp; Quantity, low to high &nbsp;
             </option>
-            <option value="qty-descending">
+            <option value="onHandQty-descending">
               &nbsp; Quantity, high to low &nbsp;
             </option>
           </select>
