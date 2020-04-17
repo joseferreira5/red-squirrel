@@ -7,12 +7,15 @@
 }
 
 .search-input {
+  background-color: rgba(255, 255, 255, 0.637);
   width: 70vw;
   font-size: 18px;
   letter-spacing: 0.1px;
   padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
+  border-radius: 3px;
   margin: 40px;
+  border: transparent;
+  font-family: "Montserrat";
 }
 
 .search-input::placeholder {

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-
 import Layout from './shared/Layout';
-
 import { getItem, updateItem } from '../services/items';
 import './ItemEdit.css';
 
@@ -14,19 +12,24 @@ class ItemEdit extends Component {
         name: '',
         description: '',
         imgURL: '',
-        preferredQty: '',
-        onHandQty: '',
+        preferredQty: 0,
+        onHandQty: 0,
       },
       updated: false,
     };
+    
   }
-
   async componentDidMount() {
     let { id } = this.props.match.params;
     const item = await getItem(id);
-    this.setState({ item });
+    this.setState({ item: {
+      name: item.name,
+      description: item.description,
+      imgURL: item.imgURL,
+      preferredQty: parseInt(item.preferredQty), 
+      onHandQty: parseInt(item.onHandQty) 
+    }});
   }
-
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
@@ -36,23 +39,41 @@ class ItemEdit extends Component {
       },
     });
   };
-
   handleSubmit = async (event) => {
     event.preventDefault();
     let { id } = this.props.match.params;
     const updated = await updateItem(id, this.state.item);
     this.setState({ updated });
   };
+  addButtonQty = (event) => {
+    event.preventDefault()
+    const { name } = event.target;
+    this.setState(prevState => ({
+      item: {
+        ...this.state.item,
+        [name]: prevState.item[name] + 1
+      }
+    }));
+  };
+  subButtonQty = (event) => {
+    event.preventDefault()
+    const { name} = event.target;
+    this.setState(prevState => ({
+      item: {
+        ...this.state.item,
+        [name]: prevState.item[name] - 1
+      }
+    }));
+  };
 
   render() {
     const { item, updated } = this.state;
-
     if (updated) {
       return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }
-
     return (
       <Layout user={this.props.user}>
+      <div className="item-container">
         <div className="item-edit">
           <div className="image-container">
             <img
@@ -63,7 +84,7 @@ class ItemEdit extends Component {
             <form onSubmit={this.handleSubmit}>
               <input
                 className="edit-input-image-link"
-                placeholder="Image Link"
+                placeholder="Image URL"
                 value={item.imgURL}
                 name="imgURL"
                 required
@@ -81,37 +102,34 @@ class ItemEdit extends Component {
               autoFocus
               onChange={this.handleChange}
             />
-            <input
-              className="input-preferredQty"
-              placeholder="preferredQty"
-              value={item.preferredQty || ''}
-              name="preferredQty"
-              required
-              onChange={this.handleChange}
-            />
-            <input
-              className="input-onHandQty"
-              placeholder="onHandQty"
-              value={item.onHandQty || ''}
-              name="onHandQty"
-              required
-              onChange={this.handleChange}
-            />
-
-            <textarea
+          <textarea
               className="textarea-description"
-              rows={10}
-              cols={78}
+              rows={1}
+              cols={1}
               placeholder="Description"
-              value={item.description || ''}
+              value={item.description}
               name="description"
               required
               onChange={this.handleChange}
             />
+           <div className="preferred">     
+               <p>Preferred Quantity</p>
+              <button onClick={this.addButtonQty} name='preferredQty'>+</button>
+                 <span>  {item.preferredQty}  </span>
+              <button onClick={this.subButtonQty} name='preferredQty'>-</button>
+            </div> 
+            <div className="onHand">
+              <p>On Hand Quantity</p>
+             <button onClick={this.addButtonQty} name='onHandQty'>+</button>
+                 <span>  {item.onHandQty}  </span>
+            <button onClick={this.subButtonQty} name='onHandQty'>-</button>
+            </div>
             <button type="submit" className="save-button">
               Save
             </button>
           </form>
+          
+          </div>
         </div>
       </Layout>
     );
