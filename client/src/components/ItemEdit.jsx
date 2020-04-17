@@ -1,17 +1,17 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
-import Layout from './shared/Layout';
-import { getItem, updateItem } from '../services/items';
-import './ItemEdit.css';
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import Layout from "./shared/Layout";
+import { getItem, updateItem } from "../services/items";
+import "./ItemEdit.css";
 
 class ItemEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
       item: {
-        name: '',
-        description: '',
-        imgURL: '',
+        name: "",
+        description: "",
+        imgURL: "",
         preferredQty: 0,
         onHandQty: 0,
       },
@@ -80,9 +80,9 @@ class ItemEdit extends Component {
 
     return (
       <Layout user={this.props.user}>
-        <div className="item-container">
-          <div className="item-edit">
-            <div className="image-container">
+        <div className="edit-item-container">
+          <div className="edit-item-edit">
+            <div className="image-container-edit">
               <img
                 className="edit-item-image"
                 src={item.imgURL}
@@ -99,9 +99,9 @@ class ItemEdit extends Component {
                 />
               </form>
             </div>
-            <form className="edit-form" onSubmit={this.handleSubmit}>
+            <form className="edit-form-edit" onSubmit={this.handleSubmit}>
               <input
-                className="input-name"
+                className="input-name-edit"
                 placeholder="Name"
                 value={item.name}
                 name="name"
@@ -110,7 +110,7 @@ class ItemEdit extends Component {
                 onChange={this.handleChange}
               />
               <textarea
-                className="textarea-description"
+                className="textarea-description-edit"
                 rows={1}
                 cols={1}
                 placeholder="Description"
@@ -120,22 +120,38 @@ class ItemEdit extends Component {
                 onChange={this.handleChange}
               />
               <div className="preferred">
-                <p>Preferred Quantity</p>
-                <button onClick={this.addButtonQty} name="preferredQty">
+                <p className="edit-button-labels">Preferred Quantity</p>
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.addButtonQty}
+                  name="preferredQty"
+                >
                   +
                 </button>
                 <span> {item.preferredQty} </span>
-                <button onClick={this.subButtonQty} name="preferredQty">
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.subButtonQty}
+                  name="preferredQty"
+                >
                   -
                 </button>
               </div>
               <div className="onHand">
-                <p>On Hand Quantity</p>
-                <button onClick={this.addButtonQty} name="onHandQty">
+                <p className="edit-button-labels">On Hand Quantity</p>
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.addButtonQty}
+                  name="onHandQty"
+                >
                   +
                 </button>
                 <span>{item.onHandQty}</span>
-                <button onClick={this.subButtonQty} name="onHandQty">
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.subButtonQty}
+                  name="onHandQty"
+                >
                   -
                 </button>
               </div>
