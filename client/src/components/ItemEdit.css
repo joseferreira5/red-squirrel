@@ -1,3 +1,53 @@
+.edit-item-container {
+  margin-top: 12em;
+  max-width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-form-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.textarea-description-edit {
+  font-size: 1.5em;
+  text-align: center;
+  padding-right: 0.5em;
+  padding-left: 0.5em;
+  color: black;
+  margin-bottom: 1em;
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+  margin-top: 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.edit-button-labels {
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.button-labels-forEdit {
+  background-color: #e5e5e5;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.edit-item-image {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
 .item-edit {
   display: flex;
   justify-content: center;
@@ -30,24 +80,11 @@
   margin-top: 3.5em;
 }
 
-/* .edit-item-image {  
- margin-bottom: .5em; 
-} */
-
 .edit-input-image-link {
   padding-bottom: 0.5em;
   padding-top: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em;
-  text-align: center;
-  font-size: 1em;
-  margin-bottom: 2em;
-}
-
-.edit-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   text-align: center;
   font-size: 1em;
   margin-bottom: 2em;
@@ -61,36 +98,12 @@
   background-color: rgba(255, 255, 255, 0.096);
 }
 
-.textarea-description {
-  font-size: 1.5em;
-  text-align: center;
-  padding-right: 0.5em;
-  padding-left: 0.5em;
-  color: black;
-  margin-bottom: 1.5em;
-  margin-right: 1.5em;
-  margin-left: 1.5em;
-  margin-top: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
+.preferred {
+  margin-bottom: 1em;
 }
-
-/* .preferred {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  background-color: rgba(255, 255, 255, 0.096);
-} */
 
 .input-preferredQty {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.096);
-}
-
-.onHand {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.096);
 }
 

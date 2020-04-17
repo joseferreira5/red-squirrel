@@ -80,13 +80,9 @@ class ItemEdit extends Component {
 
     return (
       <Layout user={this.props.user}>
-<<<<<<< HEAD
-        <div className="item-container-edit">
-=======
-        <div className="item-container">
->>>>>>> 07fe56b5a341556ee38801d33f5bc0f0d85443eb
+        <div className="edit-item-container">
           <div className="item-edit">
-            <div className="image-container">
+            <div className="image-container-edit">
               <img
                 className="edit-item-image"
                 src={item.imgURL}
@@ -103,75 +99,18 @@ class ItemEdit extends Component {
                 />
               </form>
             </div>
-            <form className="edit-form" onSubmit={this.handleSubmit}>
+            <form className="edit-form-edit" onSubmit={this.handleSubmit}>
               <input
                 className="input-name"
                 placeholder="Name"
-<<<<<<< HEAD
-                value={item.name || ""}
-                name="name"
-                required
-                autoFocus
-                onChange={this.handleChange}
-              />
-              <textarea
-                className="textarea-description"
-                rows={1}
-                cols={1}
-                placeholder="Description"
-                value={item.description}
-                name="description"
-=======
                 value={item.name}
                 name="name"
->>>>>>> 07fe56b5a341556ee38801d33f5bc0f0d85443eb
                 required
                 autoFocus
                 onChange={this.handleChange}
               />
-<<<<<<< HEAD
-              <div className="preferred">
-                <div>
-                  <p>Preferred Quantity</p>
-                  <span>
-                    <button
-                      className="add"
-                      onClick={this.addButtonQty}
-                      name="preferredQty"
-                    >
-                      +
-                    </button>
-                  </span>
-                  <span> {this.state.preferredQty} </span>
-                  <span>
-                    <button
-                      className="sub"
-                      onClick={this.subButtonQty}
-                      name="preferredQty"
-                    >
-                      -
-                    </button>
-                  </span>
-                </div>
-              </div>
-              <div className="onHand">
-                <div>
-                  <p>On Hand Quantity</p>
-                  <span>
-                    <button onClick={this.addButtonQty} name="onHandQty">
-                      +
-                    </button>
-                  </span>
-                  <span> {this.state.onHandQty} </span>
-                  <span>
-                    <button onClick={this.subButtonQty} name="onHandQty">
-                      -
-                    </button>
-                  </span>
-                </div>
-=======
               <textarea
-                className="textarea-description"
+                className="textarea-description-edit"
                 rows={1}
                 cols={1}
                 placeholder="Description"
@@ -181,25 +120,40 @@ class ItemEdit extends Component {
                 onChange={this.handleChange}
               />
               <div className="preferred">
-                <p>Preferred Quantity</p>
-                <button onClick={this.addButtonQty} name="preferredQty">
+                <p className="edit-button-labels">Preferred Quantity</p>
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.addButtonQty}
+                  name="preferredQty"
+                >
                   +
                 </button>
                 <span> {item.preferredQty} </span>
-                <button onClick={this.subButtonQty} name="preferredQty">
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.subButtonQty}
+                  name="preferredQty"
+                >
                   -
                 </button>
               </div>
               <div className="onHand">
-                <p>On Hand Quantity</p>
-                <button onClick={this.addButtonQty} name="onHandQty">
+                <p className="edit-button-labels">On Hand Quantity</p>
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.addButtonQty}
+                  name="onHandQty"
+                >
                   +
                 </button>
                 <span>{item.onHandQty}</span>
-                <button onClick={this.subButtonQty} name="onHandQty">
+                <button
+                  className="button-labels-forEdit"
+                  onClick={this.subButtonQty}
+                  name="onHandQty"
+                >
                   -
                 </button>
->>>>>>> 07fe56b5a341556ee38801d33f5bc0f0d85443eb
               </div>
               <button type="submit" className="save-button">
                 Save
