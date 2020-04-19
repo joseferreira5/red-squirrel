@@ -3,11 +3,12 @@
   flex-direction: column;
   align-items: center;
   margin: 10px;
-  box-shadow: 0px 0px 3px 1px #cecece;
+  box-shadow: 0px 1px 3px 3px #ffffff;
   transition: 250ms all;
   padding: 20px;
   margin-bottom: 60px;
-  background-color: #ffffff77;
+  background-color: #ffffff;
+  opacity: 0.9;
   font-size: 18px;
   padding: 10px;
   color: black;
@@ -24,7 +25,7 @@
   width: 150px;
   height: 150px;
   border-radius: 3px;
-  box-shadow: 1px 1px 2px 1px #cecece;
+  box-shadow: 0.5px 0.5px 10px 0.5px #3a3333ab;
   transition: width 2s, height 2s;
 }
 
@@ -49,11 +50,14 @@
 
 @media (max-width: 500px) {
   .item {
-    width: 100%;
+    width: 120px;
+    height: 300px;
+    margin-left: -40px;
+    padding: 0;
   }
   .item-image {
-    width: 120px;
-    height: 120px;
+    width: 145px;
+    height: 150px;
     margin: 15px;
     padding: 10px;
   }

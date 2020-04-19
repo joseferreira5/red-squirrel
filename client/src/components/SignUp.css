@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:200,400,500,700&display=swap");
 
-
-
 button {
   cursor: pointer;
   font-size: 1rem;
@@ -55,7 +53,7 @@ button {
   width: 40%;
   height: 60%;
   margin: 8em auto;
-  border: 2px solid #b0bec5;
+  border: transparent;
   border-radius: 6px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
   transition: all 2s ease;
@@ -84,10 +82,10 @@ button {
   margin: 0.5em auto;
   font-size: 1rem;
   border-radius: 3px;
-  border: 2px solid #e0e0e0;
+  border: transparent;
   outline: none;
   transition: all 0.4s ease;
-  box-shadow: 1px #e0e0e0 inset;
+  box-shadow: 1px 1px 1px #ffffff8e inset;
 }
 
 .form-container form input:focus,
@@ -96,13 +94,13 @@ button {
 }
 
 .form-container form input:valid {
-  border: 2px solid #66bb6a;
+  border: 2px solid #ffffff;
 }
 
 .form-container form button {
   width: 50%;
   margin: 0.5em auto;
-  background-color: brown;
+  background-color: rgb(255, 255, 255);
   border: none;
 }
 
@@ -236,16 +234,23 @@ button {
   min-height: 100px;
 }
 
-.item-container .item button {
+/* .item-container .item button {
   background: #0097a7;
   color: #f8f8f8;
-}
+} */
 
 .item-container .item button:hover {
   background: #56c8d8;
   color: #333;
 }
 
+@media (max-width: 500px) {
+  .form-container form {
+    justify-content: left;
+    margin: 15px;
+    width: 70%;
+  }
+}
 /* .danger {
   background: #e57373;
 }

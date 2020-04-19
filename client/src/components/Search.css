@@ -7,7 +7,7 @@
 }
 
 .search-input {
-  background-color: rgba(255, 255, 255, 0.637);
+  background-color: rgba(255, 255, 255, 0.808);
   width: 70vw;
   font-size: 18px;
   letter-spacing: 0.1px;
@@ -16,16 +16,35 @@
   margin: 40px;
   border: transparent;
   font-family: "Montserrat";
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.185);
 }
 
 .search-input::placeholder {
   letter-spacing: 0.3px;
 }
 
+.search-input:hover {
+  box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.185);
+  transition: box-shadow, 600ms;
+}
+
+.sort-container {
+  display: flex;
+  width: 83.5vw;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
 @media (max-width: 500px) {
-
   .search-form {
-    margin: 0 0px 0px 70px;
+    margin: 0 auto;
   }
-
+  .search-input{
+    margin: 20px 0px 10px 0px;
+  }
+  .sort-container {
+    width: 100%;
+    justify-content: center;
+    margin: 20px
+  }
 }

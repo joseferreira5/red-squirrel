@@ -16,6 +16,7 @@ class Items extends Component {
       filterValue: '',
       filteredItems: null,
       selectValue: 'Featured',
+      
     };
   }
 
@@ -103,7 +104,7 @@ class Items extends Component {
           onChange={this.handleSearchChange}
         />
         <form className="sort-container" onSubmit={this.handleSubmit}>
-          <label htmlFor="sort">SORT BY:</label>
+          <label className="sort-label" htmlFor="sort">Sort By:</label>
           <select
             className="sort"
             value={this.state.selectValue}
