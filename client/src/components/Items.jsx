@@ -16,6 +16,7 @@ class Items extends Component {
       filterValue: '',
       filteredItems: null,
       selectValue: 'Featured',
+      
     };
   }
 

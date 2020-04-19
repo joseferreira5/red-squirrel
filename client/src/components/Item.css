@@ -27,10 +27,6 @@
   border-radius: 3px;
   box-shadow: 0.5px 0.5px 10px 0.5px #3a3333ab;
   transition: width 2s, height 2s;
-  background-image: url(../Images/mascot.png);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 .item-name {
@@ -64,7 +60,6 @@
     height: 150px;
     margin: 15px;
     padding: 10px;
-    background-size: 100px 100px;
   }
 
   .item:hover {

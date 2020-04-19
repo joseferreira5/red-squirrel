@@ -5,6 +5,7 @@ import Layout from './shared/Layout';
 
 import { getItem, deleteItem } from '../services/items';
 import './ItemDetail.css';
+import mascot from "../Images/MascotWAppReds.png"
 
 class ItemDetail extends Component {
   constructor() {
@@ -46,7 +47,7 @@ class ItemDetail extends Component {
         <div className="item-detail">
           <img
             className="item-detail-image"
-            src={item.imgURL}
+            src={item.imgURL || mascot}
             alt={item.name}
           />
           <div className="detail">

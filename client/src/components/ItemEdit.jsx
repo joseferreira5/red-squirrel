@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Layout from "./shared/Layout";
 import { getItem, updateItem } from "../services/items";
 import "./ItemEdit.css";
+import mascot from "../Images/MascotWAppReds.png"
 
 class ItemEdit extends Component {
   constructor(props) {
@@ -85,7 +86,7 @@ class ItemEdit extends Component {
             <div className="image-container-edit">
               <img
                 className="edit-item-image"
-                src={item.imgURL}
+                src={item.imgURL || mascot}
                 alt={item.name}
               />
               <form onSubmit={this.handleSubmit}>

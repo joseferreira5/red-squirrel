@@ -27,7 +27,7 @@
   margin-top: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  width: 20vw;
+  width: 25vw;
 }
 
 .edit-button-labels {
@@ -59,7 +59,6 @@
   padding-bottom: 2em;
   flex-direction: column;
   text-align: center;
-  border: 0.125px solid #2b2d2f;
   align-content: space-between;
   background-color: #ffffff;
   opacity: 0.9;
@@ -140,5 +139,15 @@ button:hover {
 
   .edit-item-edit {
     /* margin-left: 1.5em; */
+  }
+
+  .edit-item-image {
+    width: 300px;
+    margin: 15px;
+    padding: 10px;
+  }
+
+  .textarea-description-edit {
+    width: 70vw;
   }
 }
