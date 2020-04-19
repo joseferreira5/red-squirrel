@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 
 import Home from './components/Home';
 import Items from './components/Items';
@@ -43,56 +44,58 @@ class App extends Component {
     const { user } = this.state;
     return (
       <div className="app">
-        <Switch>
-          <Route exact path="/" render={() => <Home user={user} />} />
-          <Route
-            exact
-            path="/sign-up"
-            render={(props) => (
-              <SignUp setUser={setUser} history={props.history} />
-            )}
-          />
-          <Route
-            exact
-            path="/sign-in"
-            render={(props) => (
-              <SignIn setUser={setUser} history={props.history} />
-            )}
-          />
-          <Route
-            exact
-            path="/sign-out"
-            render={(props) => (
-              <SignOut
-                user={user}
-                clearUser={clearUser}
-                history={props.history}
-              />
-            )}
-          />
-          <Route exact path="/items" render={() => <Items user={user} />} />
-          <Route
-            exact
-            path="/add-item"
-            render={() =>
-              user ? <ItemCreate user={user} /> : <Redirect to="/signup" />
-            }
-          />
-          <Route
-            exact
-            path="/items/:id/edit"
-            render={(props) =>
-              user ? <ItemEdit {...props} user={user} /> : <Redirect to="/" />
-            }
-          />
-          <Route
-            exact
-            path="/items/detail/:itemId"
-            render={(props) => (
-              <ItemDetail {...props} history={props.history} user={user} />
-            )}
-          />
-        </Switch>
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <Switch>
+            <Route exact path="/" render={() => <Home user={user} />} />
+            <Route
+              exact
+              path="/sign-up"
+              render={(props) => (
+                <SignUp setUser={setUser} history={props.history} />
+              )}
+            />
+            <Route
+              exact
+              path="/sign-in"
+              render={(props) => (
+                <SignIn setUser={setUser} history={props.history} />
+              )}
+            />
+            <Route
+              exact
+              path="/sign-out"
+              render={(props) => (
+                <SignOut
+                  user={user}
+                  clearUser={clearUser}
+                  history={props.history}
+                />
+              )}
+            />
+            <Route exact path="/items" render={() => <Items user={user} />} />
+            <Route
+              exact
+              path="/add-item"
+              render={() =>
+                user ? <ItemCreate user={user} /> : <Redirect to="/signup" />
+              }
+            />
+            <Route
+              exact
+              path="/items/:id/edit"
+              render={(props) =>
+                user ? <ItemEdit {...props} user={user} /> : <Redirect to="/" />
+              }
+            />
+            <Route
+              exact
+              path="/items/detail/:itemId"
+              render={(props) => (
+                <ItemDetail {...props} history={props.history} user={user} />
+              )}
+            />
+          </Switch>
+        </AnimatePresence>
       </div>
     );
   }

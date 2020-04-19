@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import './SignIn.css';
+import { motion } from 'framer-motion';
+
 import { signIn } from '../services/user';
+import './SignIn.css';
 
 class SignIn extends Component {
   constructor() {
@@ -60,7 +62,12 @@ class SignIn extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="form-container">
+      <motion.div
+        className="form-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <h3>Sign In</h3>
         <form onSubmit={this.onSignIn}>
           <label>Username</label>
@@ -83,7 +90,7 @@ class SignIn extends Component {
           />
           {this.renderError()}
         </form>
-      </div>
+      </motion.div>
     );
   }
 }

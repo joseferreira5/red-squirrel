@@ -1,52 +1,53 @@
-import React, { Component } from "react";
-import "./SignUp.css";
-import { signUp, signIn } from "../services/user";
-import Layout from "./shared/Layout";
+import React, { Component } from 'react';
+import { motion } from 'framer-motion';
+
+import { signUp, signIn } from '../services/user';
+import './SignUp.css';
 
 class SignUp extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: '',
       isError: false,
-      errorMsg: ""
+      errorMsg: '',
     };
   }
 
-  handleChange = event =>
+  handleChange = (event) =>
     this.setState({
       [event.target.name]: event.target.value,
       isError: false,
-      errorMsg: ""
+      errorMsg: '',
     });
 
-  onSignUp = event => {
+  onSignUp = (event) => {
     event.preventDefault();
 
     const { history, setUser } = this.props;
 
     signUp(this.state)
       .then(() => signIn(this.state))
-      .then(res => setUser(res.user))
-      .then(() => history.push("/"))
-      .catch(error => {
+      .then((res) => setUser(res.user))
+      .then(() => history.push('/items'))
+      .catch((error) => {
         console.error(error);
         this.setState({
-          email: "",
-          password: "",
-          passwordConfirmation: "",
+          email: '',
+          password: '',
+          passwordConfirmation: '',
           isError: true,
-          errorMsg: "Sign Up Details Invalid"
+          errorMsg: 'Sign Up Details Invalid',
         });
       });
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "danger" : "";
+    const toggleForm = this.state.isError ? 'danger' : '';
     if (this.state.isError) {
       return (
         <button type="submit" className={toggleForm}>
@@ -66,7 +67,12 @@ class SignUp extends Component {
     const { email, username, password, passwordConfirmation } = this.state;
 
     return (
-      <div className="form-container">
+      <motion.div
+        className="form-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <h3>Sign Up</h3>
         <form onSubmit={this.onSignUp}>
           <label>Username</label>
@@ -107,7 +113,7 @@ class SignUp extends Component {
           />
           {this.renderError()}
         </form>
-      </div>
+      </motion.div>
     );
   }
 }
