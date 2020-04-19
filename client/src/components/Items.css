@@ -7,36 +7,27 @@
   margin: 20px;
 }
 
-.sort-container {
-  display: flex;
-  width: 83.5vw;
-  justify-content: flex-end;
-  margin: 20px;
-}
-
-label {
-  font-size: 18px;
+.sort-label {
+  font-size: 20px;
+  text-shadow: .5px .5px 2px white;
   font-family: "Montserrat";
-  font-weight: bold;
+  font-weight: 500;
   padding-right: 10px;
-   
+  color: black;
 }
 
-select {
+.sort {
   cursor: pointer;
   border: none;
   font-size: 18px;
+  font-family: "Montserrat";
+  background-color: rgba(255, 255, 255, 0.808);
 }
 
 @media (max-width: 500px) {
   .items {
     width: 100%;
     justify-content: space-around;
-    margin: 0 0px 20px 70px;
-  }
-  .sort-container {
-    width: 100%;
-    justify-content: center;
-    margin: 0px;
+    margin: 0 0px 20px 50px;
   }
 }
