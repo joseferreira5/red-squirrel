@@ -1,13 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+// import mascot from "../Images/mascot.png"
 
-import './Item.css';
+import "./Item.css";
 
-const Item = (props) => {
+const Item = props => {
   return (
     <>
       <Link className="item" to={`/items/detail/${props.itemId}`}>
-        <img className="item-image" src={props.imgURL} alt={props.name} />
+        <img className="item-image" src={props.imgURL} alt={""} />
         <div className="item-name">{props.name}</div>
         <div className="onhand-qty-header">On Hand Quantity</div>
         <div className="onhand-qty">{props.onHandQty}</div>

@@ -25,8 +25,12 @@
   width: 150px;
   height: 150px;
   border-radius: 3px;
-  box-shadow: .5px .5px 10px .5px #3a3333ab;
+  box-shadow: 0.5px 0.5px 10px 0.5px #3a3333ab;
   transition: width 2s, height 2s;
+  background-image: url(../Images/mascot.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .item-name {
@@ -50,13 +54,17 @@
 
 @media (max-width: 500px) {
   .item {
-    width: 100%;
+    width: 120px;
+    height: 300px;
+    margin-left: -40px;
+    padding: 0;
   }
   .item-image {
-    width: 120px;
-    height: 120px;
+    width: 145px;
+    height: 150px;
     margin: 15px;
     padding: 10px;
+    background-size: 100px 100px;
   }
 
   .item:hover {

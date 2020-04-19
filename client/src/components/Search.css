@@ -26,7 +26,6 @@
 .search-input:hover {
   box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.185);
   transition: box-shadow, 600ms;
-
 }
 
 .sort-container {
@@ -37,14 +36,15 @@
 }
 
 @media (max-width: 500px) {
-
   .search-form {
-    margin: 0 0px 0px 70px;
+    margin: 0 auto;
   }
-    .sort-container {
+  .search-input{
+    margin: 20px 0px 10px 0px;
+  }
+  .sort-container {
     width: 100%;
     justify-content: center;
-    margin: 0px;
+    margin: 20px
   }
-
 }

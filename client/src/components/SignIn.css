@@ -54,7 +54,7 @@ button {
   margin: 4em auto;
   border-radius: 6px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-  background-color: #ffffff70;
+  background-color: #ffffff85;
   transition: all 2s ease;
 }
 
@@ -65,14 +65,14 @@ button {
 .form-container h3 {
   text-align: center;
 }
-
+/* 
 .form-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: auto;
   width: 80%;
-}
+} */
 
 .form-container form input {
   width: 100%;
@@ -94,7 +94,7 @@ button {
 .form-container form button {
   width: 50%;
   margin: 1em auto;
-  background: #ffffff36;
+  background: #ffffff8a;
   border: transparent;
 }
 
@@ -102,9 +102,9 @@ button {
   box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-.form-container form a {
+/* .form-container form a {
   margin: auto;
-}
+} */
 
 .form-container form label {
   margin-top: 0.6em;

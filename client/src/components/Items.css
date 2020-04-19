@@ -7,33 +7,27 @@
   margin: 20px;
 }
 
-
 .sort-label {
   font-size: 20px;
+  text-shadow: .5px .5px 2px white;
   font-family: "Montserrat";
-  font-weight: 400;
+  font-weight: 500;
   padding-right: 10px;
-  color: transparent;
-  text-shadow: 1px 1px 1px black;
-   
+  color: black;
 }
 
 .sort {
   cursor: pointer;
   border: none;
   font-size: 18px;
-  Font-family: "Montserrat";
+  font-family: "Montserrat";
   background-color: rgba(255, 255, 255, 0.808);
- 
 }
-
-
 
 @media (max-width: 500px) {
   .items {
     width: 100%;
     justify-content: space-around;
-    margin: 0 0px 20px 70px;
+    margin: 0 0px 20px 50px;
   }
-
 }
