@@ -92,6 +92,7 @@ class Items extends Component {
         name={item.name}
         imgURL={item.imgURL}
         onHandQty={item.onHandQty}
+        preferredQty={item.preferredQty}
         key={index}
       />
     ));

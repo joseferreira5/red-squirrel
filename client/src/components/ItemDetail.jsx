@@ -23,6 +23,7 @@ class ItemDetail extends Component {
     };
   }
 
+
   async componentDidMount() {
     let { itemId } = this.props.match.params;
     const item = await getItem(itemId);
@@ -32,7 +33,7 @@ class ItemDetail extends Component {
   handleDelete = (itemId) => {
     deleteItem(itemId);
     this.setState({ deleted: true });
-  };
+  }
 
   render() {
     const { item, deleted } = this.state;
