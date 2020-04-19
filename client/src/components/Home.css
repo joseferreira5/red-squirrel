@@ -7,10 +7,11 @@
   max-width: 40%;
   display: block;
   text-align: center;
-  margin-top: 10em;
+  margin-top: 20em;
   line-height: 2em;
-  /* margin-left: auto; */
-  margin-left: 51vw;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin-left: 35vw;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
   border: 0.5px solid black;
   border-radius: 4px;
@@ -23,8 +24,8 @@
 }
 
 .homeText {
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
   font-size: 1.5em;
   margin-left: auto;
   margin-right: auto;
@@ -43,6 +44,7 @@
   font-weight: 600;
   font-size: 1.2em;
   text-decoration: underline;
+  color: #000;
 }
 
 @media (max-width: 500px) {
@@ -50,6 +52,7 @@
     max-width: 75%;
     margin-right: auto;
     margin-left: auto;
+    margin-top: 13em;
   }
   .homeText {
     font-size: 1.2em;
