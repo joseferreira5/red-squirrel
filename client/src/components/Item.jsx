@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import flag from '../Images/flag.png';
+import flag from '../images/flag.png';
 import mascot from '../images/mascot_over_red.png';
 import './Item.css';
 
