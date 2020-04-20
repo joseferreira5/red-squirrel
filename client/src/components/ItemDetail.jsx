@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link, Redirect } from "react-router-dom";
 
-import Layout from './shared/Layout';
+import Layout from "./shared/Layout";
 
-import { getItem, deleteItem } from '../services/items';
-import './ItemDetail.css';
-import mascot from "../Images/MascotWAppReds.png"
+import { getItem, deleteItem } from "../services/items";
+import "./ItemDetail.css";
+import mascot from "../Images/Mascot_over_red_2.png";
 
 class ItemDetail extends Component {
   constructor() {
     super();
     this.state = {
       item: {
-        name: '',
-        description: '',
-        imgURL: '',
-        preferredQty: '',
-        onHandQty: '',
-        _id: '',
+        name: "",
+        description: "",
+        imgURL: "",
+        preferredQty: "",
+        onHandQty: "",
+        _id: "",
       },
       deleted: false,
     };
   }
-
 
   async componentDidMount() {
     let { itemId } = this.props.match.params;
@@ -33,14 +32,14 @@ class ItemDetail extends Component {
   handleDelete = (itemId) => {
     deleteItem(itemId);
     this.setState({ deleted: true });
-  }
+  };
 
   render() {
     const { item, deleted } = this.state;
     const { user } = this.props;
 
     if (deleted) {
-      return <Redirect to={'/items'} />;
+      return <Redirect to={"/items"} />;
     }
 
     return (
