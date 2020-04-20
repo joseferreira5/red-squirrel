@@ -16,7 +16,6 @@ class Items extends Component {
       filterValue: '',
       filteredItems: null,
       selectValue: 'Featured',
-      
     };
   }
 
@@ -52,7 +51,7 @@ class Items extends Component {
 
   handleSortChange = (event) => {
     this.setState({ selectValue: event.target.value });
-    let input = event.target.value; // a-z
+    let input = event.target.value;
     const { items } = this.state;
     switch (input) {
       case 'name-ascending':
@@ -65,12 +64,12 @@ class Items extends Component {
           items: ZA(items),
         });
         break;
-      case 'price-ascending':
+      case 'quantity-ascending':
         this.setState({
           items: lowestFirst(items),
         });
         break;
-      case 'price-descending':
+      case 'quantity-descending':
         this.setState({
           items: highestFirst(items),
         });
@@ -105,7 +104,9 @@ class Items extends Component {
           onChange={this.handleSearchChange}
         />
         <form className="sort-container" onSubmit={this.handleSubmit}>
-          <label className="sort-label" htmlFor="sort">Sort By:</label>
+          <label className="sort-label" htmlFor="sort">
+            Sort By:
+          </label>
           <select
             className="sort"
             value={this.state.selectValue}
@@ -117,11 +118,11 @@ class Items extends Component {
             <option value="name-descending">
               &nbsp; Alphabetically, Z-A &nbsp;
             </option>
-            <option value="price-ascending">
-              &nbsp; Price, low to high &nbsp;
+            <option value="quantity-ascending">
+              &nbsp; Quantity, low to high &nbsp;
             </option>
-            <option value="price-descending">
-              &nbsp; Price, high to low &nbsp;
+            <option value="quantity-descending">
+              &nbsp; Quantity, high to low &nbsp;
             </option>
           </select>
         </form>

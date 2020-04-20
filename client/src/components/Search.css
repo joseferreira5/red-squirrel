@@ -15,7 +15,7 @@
   border-radius: 3px;
   margin: 40px;
   border: transparent;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.185);
 }
 
@@ -39,12 +39,12 @@
   .search-form {
     margin: 0 auto;
   }
-  .search-input{
+  .search-input {
     margin: 20px 0px 10px 0px;
   }
   .sort-container {
     width: 100%;
     justify-content: center;
-    margin: 20px
+    margin: 20px;
   }
 }

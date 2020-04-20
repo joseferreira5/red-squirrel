@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Mascot from '../../Images/mascot.png';
+import mascot from '../../images/mascot.png';
 import './Nav.css';
 
 const unauthenticatedOptions = (
@@ -35,7 +35,7 @@ const Nav = ({ user }) => {
       <div className="header">
         <div className="nav">
           <NavLink className="squirrel" to="/">
-            <img src={Mascot} />
+            <img src={mascot} alt="red squirrel logo" />
             <div className="logoText">
               <h1>Red</h1>
               <h1>Squirrel</h1>
