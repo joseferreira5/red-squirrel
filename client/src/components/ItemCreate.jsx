@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-import Layout from "./shared/Layout";
+import Layout from './shared/Layout';
 
-import { createItem } from "../services/items";
-import "./ItemCreate.css";
+import { createItem } from '../services/items';
+import './ItemCreate.css';
 
 class ItemCreate extends Component {
   constructor() {
     super();
     this.state = {
       item: {
-        name: "",
-        description: "",
-        imgURL: "",
-        preferredQty: "",
-        onHandQty: "",
+        name: '',
+        description: '',
+        imgURL: '',
+        preferredQty: '',
+        onHandQty: '',
       },
       created: false,
     };
@@ -41,8 +41,9 @@ class ItemCreate extends Component {
     const { item, created } = this.state;
 
     if (created) {
-      return <Redirect to={"/items"} />;
+      return <Redirect to={'/items'} />;
     }
+
     return (
       <Layout user={this.props.user}>
         <div className="create-item-form">

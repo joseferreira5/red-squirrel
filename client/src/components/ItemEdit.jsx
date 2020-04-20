@@ -1,18 +1,20 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
-import Layout from "./shared/Layout";
-import { getItem, updateItem } from "../services/items";
-import "./ItemEdit.css";
-import mascot from "../Images/MascotWAppReds.png"
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+
+import Layout from './shared/Layout';
+
+import { getItem, updateItem } from '../services/items';
+import mascot from '../images/mascot_over_red.png';
+import './ItemEdit.css';
 
 class ItemEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
       item: {
-        name: "",
-        description: "",
-        imgURL: "",
+        name: '',
+        description: '',
+        imgURL: '',
         preferredQty: 0,
         onHandQty: 0,
       },
@@ -75,6 +77,7 @@ class ItemEdit extends Component {
 
   render() {
     const { item, updated } = this.state;
+
     if (updated) {
       return <Redirect to={`/items/detail/${this.props.match.params.id}`} />;
     }

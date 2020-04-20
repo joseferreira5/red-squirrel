@@ -1,7 +1,9 @@
-import React from "react";
-import "./Home.css";
-import Layout from "./shared/Layout";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import Layout from './shared/Layout';
+
+import './Home.css';
 
 const Home = (props) => {
   return (
@@ -13,7 +15,7 @@ const Home = (props) => {
           <br />
           <Link className="callToAction" to={`/sign-up/`}>
             Sign up now!
-          </Link>{" "}
+          </Link>{' '}
           and begin tracking your stuff.
         </p>
       </div>

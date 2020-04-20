@@ -1,8 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Flag from "../Images/flag.png";
-import "./Item.css";
-import mascot from "../Images/Mascot_over_red_2.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
+import flag from '../Images/flag.png';
+import mascot from '../images/mascot_over_red.png';
+import './Item.css';
 
 const Item = (props) => {
   const isCritical = (onHandQty, preferredQty) => {
@@ -10,11 +11,12 @@ const Item = (props) => {
       return true;
     }
   };
+
   return (
     <>
       <Link className="item" to={`/items/detail/${props.itemId}`}>
         {isCritical(props.onHandQty, props.preferredQty) ? (
-          <img className="flag" src={Flag} />
+          <img className="flag" src={flag} alt="critical flag" />
         ) : (
           false
         )}
@@ -26,7 +28,6 @@ const Item = (props) => {
         <div className="item-name">{props.name}</div>
         <div className="onhand-qty-header">On Hand Quantity</div>
         <div className="onhand-qty">{props.onHandQty}</div>
-        <div className="preferred-qty">{props.preferredQty}</div>
       </Link>
     </>
   );

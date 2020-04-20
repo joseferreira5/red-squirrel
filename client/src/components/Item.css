@@ -14,7 +14,7 @@
   padding: 10px;
   color: black;
   border-radius: 8px;
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
 }
 
 .item:hover {
@@ -44,7 +44,7 @@
   padding: 1px;
   color: rgba(246, 64, 19, 0.041);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.616);
-  font-family: "Baloo Paaji 2", cursive;
+  font-family: 'Baloo Paaji 2', cursive;
 }
 
 .onhand-qty-header {
@@ -52,6 +52,7 @@
   font-weight: 400;
   text-shadow: 1px 2px 2px white, 1px 1px 1px black;
 }
+
 .onhand-qty {
   text-shadow: 1px 1px 1px white;
   font-weight: 500;

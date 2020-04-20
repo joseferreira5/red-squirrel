@@ -1,4 +1,5 @@
 import { Component } from 'react';
+
 import { signOut } from '../services/user';
 
 class SignOut extends Component {

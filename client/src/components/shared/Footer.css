@@ -1,17 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap');
-
 .Footer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex: 1;
-
   font-family: 'Baloo Paaji 2', cursive;
   color: #ffffff;
   text-align: center;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-
   position: fixed;
   width: 100%;
   background-color: #f63f13;

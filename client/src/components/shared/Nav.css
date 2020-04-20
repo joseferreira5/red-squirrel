@@ -1,10 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@600;800&family=Emblema+One&family=Fredoka+One&family=IBM+Plex+Sans:ital,wght@1,600;1,700&family=Josefin+Sans:ital,wght@0,400;1,200&family=Kenia&family=Lobster&family=Pacifico&family=Righteous&display=swap");
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
 .squirrel {
   display: flex;
   flex-direction: row;
@@ -14,12 +7,13 @@
   margin-right: 3em;
   max-width: 5vw;
   transition: 250ms all;
+  flex: 1;
 }
 
 .logoText {
   display: block;
   text-align: left;
-  font-family: "Baloo Paaji 2", cursive;
+  font-family: 'Baloo Paaji 2', cursive;
   font-weight: 600;
   padding-left: 0.3em;
   font-size: 20px;
@@ -32,12 +26,10 @@
 }
 
 .squirrel:hover {
-  transform: scale(1.004);
+  transform: scale(1.1);
 }
 
 .squirrel img {
-  margin: 0;
-  padding: 0;
   height: 55px;
   width: 55px;
 }
@@ -51,7 +43,7 @@ nav {
   left: 0;
 }
 
-.nav{
+.nav {
   display: flex;
   padding: 20px 0;
   box-shadow: 1px 1px 1px 0.3px #f75e39;
@@ -59,7 +51,6 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .link {
@@ -101,7 +92,7 @@ nav {
   color: #ffffff;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
