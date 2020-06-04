@@ -19,7 +19,7 @@ services:
     tty: true
     depends_on:
       - server
-      - db
+      - mongo
   server:
     container_name: server
     build:
@@ -31,9 +31,9 @@ services:
     ports:
       - 3000:3000
     links:
-      - db
-  db:
+      - mongo
+  mongo:
     container_name: mongo
     image: mongo
     ports:
-      - '27017:27017'
+      - '27018:27017'
