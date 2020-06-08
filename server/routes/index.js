@@ -1,10 +1,15 @@
 const { Router } = require('express');
 const controllers = require('../controllers');
 const restrict = require('../helpers');
+const StatsD = require('node-dogstatsd').StatsD;
+const dogstatsd = new StatsD();
 
 const router = Router();
 
-router.get('/', (req, res) => res.send('This is the api root!'));
+router.get('/', (req, res) => {
+  dogstatsd.increment('node.page.views', ['method:GET', 'route:contacts']);
+  res.send('This is the api root!');
+});
 
 router.post('/sign-up', controllers.signUp);
 router.post('/sign-in', controllers.signIn);

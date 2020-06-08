@@ -1,5 +1,10 @@
+const tracer = require('dd-trace');
 const app = require('./app.js');
 const db = require('./db');
+
+tracer.default.init({
+  analytics: true,
+});
 
 const PORT = process.env.PORT || 3000;
 

@@ -30,10 +30,21 @@ services:
       - '/app/node_modules'
     ports:
       - 3000:3000
+    environment:
+      - DD_AGENT_HOST=datadog-agent
+      - DD_TRACE_AGENT_PORT=8126
     links:
       - mongo
+    labels:
+      com.datadoghq.ad.check_names: '["mongo"]'
+      com.datadoghq.ad.init_configs: '[{}]'
+      com.datadoghq.ad.instances: '[{"server": "mongodb://datadog:airborne@%%host%%:%%port%%/redSquirrelDatabase", "replica_check": true, "additional_metrics": "metrics.commands","tcmalloc","top","collection"]}]'
   mongo:
     container_name: mongo
     image: mongo
     ports:
       - '27018:27017'
+networks:
+  default:
+    external:
+      name: red_squirrel_network
